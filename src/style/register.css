@@ -1,0 +1,163 @@
+.content-login{
+    display: flex;
+}
+
+
+.login-img{
+    width:70%;
+    height: 100%;
+    
+}
+
+.grid {
+    
+    box-shadow: 0 1rem 1.7rem rgba(12, 3, 27, 0.10);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 4rem;
+    
+  }
+.form_input1{
+    background-image: none;
+    border: 0;
+    color: 0;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+  
+}
+.form_input1 [type="submit"] {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+.form_input [type="submit"] {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .form {
+    display: grid;
+    gap: 0.875rem;
+  }
+
+  .form-1{
+    display: grid;
+    grid-template-columns:repeat(2, 2fr);   
+   }
+  
+  .form .form_input[type="password"],
+  .form .form_input[type="text"],
+  .form .form_input[type="email"]
+  .submitButton {
+    inline-size:150%;
+  }
+  .form-1 .form_input1[type="date"]{
+    inline-size: 77%;
+  }
+
+  .form-1 .form_input1[type="password"],
+  .form-1 .form_input1[type="text"],
+  .form-1 .form_input1[type="email"],
+ 
+  .submitButton {
+    margin-bottom: 2rem;
+    margin-right: 7px;
+    padding-left: 0;
+
+  }
+ 
+  .form_field {
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .form_field i{
+    color: var( --card-bg-02);
+  }
+  .form_field1 i{
+    color: var( --card-bg-02);
+  }
+  .form_input {
+    flex: 1;
+    
+  }
+  .login {
+    color:var(--primary-color);
+  }
+  .login label,
+  .login .form_input [type="text"],
+  .login .form_input [type="password"],
+  .login .form_input [type="email"]
+
+  .submitButton {
+    border-radius:0.25rem;
+    padding: 1rem;
+    
+  }
+  .login label,
+  .login .form_input1 [type="text"],
+  .login .form_input1 [type="password"],
+  .login .form_input1 [type="email"],
+  .submitButton {
+    border-radius:0.25rem;
+    padding: 1rem;
+    
+  }
+  .login label {
+    background-color: var(--primary-color);
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-inline: 1.25rem;
+  }
+  .login .form_input [type="password"],
+  .login .form_input [type="text"] ,
+  .login .form_input [type="email"] {
+    background-color: white;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border: 1px solid var(--card-bg-02) ;
+  }
+
+  .login .form_input1 [type="password"],
+  .login .form_input1 [type="text"],
+  .login .form_input1 [type="email"]  {
+    background-color: white;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border: 1px solid var(--card-bg-02) ;
+  }
+
+  .submitButton {
+    background-color: var(--card-bg-02);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+  }
+ 
+
+  .text--center {
+    text-align: center;
+    margin-block: 1.5rem;
+    
+    
+  }
+  .text--center1{
+    margin: 20px;
+    padding-left: 5rem;
+}
+  .title{
+    text-align: center;
+    padding-left: 5rem;
+    color: var(--card-bg-02);
+    font-weight: 800;
+  }
+  .title1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--card-bg-02);
+    font-weight: 800;
+  }
