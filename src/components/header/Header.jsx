@@ -14,10 +14,7 @@ const Header = () => {
       path:'contact',
       display:'contact'
     },
-    {
-      path:'StaffMedico',
-      display:'Staff Medico'
-    },
+  
     {
       path:'specialties',
       display:'specialties'
