@@ -1,5 +1,8 @@
 .content-login{
     display: flex;
+
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -11,8 +14,9 @@
 
 
 .grid1 {
+ 
     padding: 7rem;
-    box-shadow: 0 1rem 1.7rem rgba(12, 3, 27, 0.10);
+    box-shadow: 0 1rem 1.7rem rgba(12, 3, 27, 0.12);
     padding-right: 10rem;
     margin-top: 5rem;
     margin-bottom: 5rem;
