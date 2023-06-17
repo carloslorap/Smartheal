@@ -1,0 +1,36 @@
+.content_general{
+  display: flex;
+    }
+.his_title{
+    font-weight: 700; 
+    margin-top: 4%;
+    color: var(--heading-text-color);
+}
+
+.his_subtitle{
+    
+    margin: 30px 0px 20px ;
+}
+
+.his_label{
+    display: flex;
+    column-gap: 0.5rem;
+    margin-bottom: 10px;
+    color: var( --small-text-color);
+}
+
+.other{
+    margin-bottom: 50px;
+    width: 650px;
+}
+.his_date{
+    font-size:16px;
+    color: black;
+    
+}
+.content_img{
+    position: absolute;
+    right: 0;
+    width: 24.2rem;
+    margin-left: 60px;
+}

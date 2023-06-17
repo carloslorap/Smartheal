@@ -1,6 +1,6 @@
 const serviceData = [
     {
-      icon: "ri-truck-line",
+      icon: "ri-heart-pulse-fill",
       title: "Free Shipping",
       subtitle: "Lorem ipsum dolor sit amet.",
       bg: "#BDDBFF",
