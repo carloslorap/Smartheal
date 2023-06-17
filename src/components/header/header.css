@@ -14,13 +14,14 @@
 
 }
 .navigation{ 
-    padding-left: 26rem;
+    padding-left:15rem;
 }
 
 .logo{
     display: flex;
     align-items: center;
     column-gap: 8px;
+   
 }
 
 .logo i{
@@ -39,6 +40,8 @@
     align-items: center;
     column-gap: 2.7rem;
     margin-bottom: 0;
+  
+    
    
 }
 

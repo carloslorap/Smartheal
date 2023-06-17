@@ -14,6 +14,10 @@ const Header = () => {
       path:'contact',
       display:'contact'
     },
+    {
+      path:'Staff',
+      display:'staff'
+    },
   
     {
       path:'specialties',
@@ -22,10 +26,10 @@ const Header = () => {
     {path:'login',
     display:'login'
     },
-    {
-      path:'register',
-      display:'register'
-    }
+    {path:'historial',
+    display:'medical history'
+    },
+  
   ]
 
 
