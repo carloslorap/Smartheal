@@ -1,0 +1,41 @@
+.image {
+    width: 100%; 
+    height: auto;
+    padding-top: 30px;
+  }
+  .text-contact {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .custom-button {
+    background-color: #071347f1; 
+    color: #ffffff; 
+    font-size: 15px; 
+    padding: 10px 20px; 
+    width: 30%;
+    border-radius: 15px;
+  }
+
+  .message {
+    margin-bottom: 20px;
+  }
+  
+  .form-description {
+    margin-top: 20px;
+  }
+
+  .border-black {
+    border: 2px solid rgb(8, 8, 6);
+  }
+
+
+  .img-compartenos{
+
+    padding: 30px;
+    padding-bottom: 70px;
+  }
+  
