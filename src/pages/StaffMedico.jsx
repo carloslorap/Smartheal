@@ -1,5 +1,3 @@
-
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "../style/staffm.css";
 import React from 'react'
 import Button from 'react-bootstrap/Button';

@@ -8,9 +8,7 @@ const Login = () => {
   return (
     <div>
       <div className="content-login">
-        <div className="content-img">
-          <img src={back} alt="" className="login-img" />
-        </div>
+       
 
         <div className="grid1">
             <h2 className="title">Welcome</h2>

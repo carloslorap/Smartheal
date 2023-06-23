@@ -8,6 +8,7 @@ const Footer = () => {
   const year=new Date().getFullYear();
   return (
     <footer className='footer'>
+      
       <Container>
         <Row>
           <Col lg='4'className='mb-4'md='6' >
@@ -97,7 +98,9 @@ const Footer = () => {
             <p className='footer_copyright'>Copyright {year} developed by Muhibur Rahman. All rights reserved.</p>
           </Col>
         </Row>
+        
       </Container>
+      
     </footer>
   )
 }
