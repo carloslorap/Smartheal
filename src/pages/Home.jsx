@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 import '../style/home.css'
 import Doc from '../assets/doc.jpg'
 import Services from '../services/services';
-import inter from '../assets/Rectangle 46.png'
-import hanco from '../assets/Rectangle 43.png'
-import rimac from '../assets/Rectangle 44.png'
-import mafre from '../assets/Rectangle 45.png'
+
 import icon from '../assets/Rectangle 78.png'
 import Helmet from '../components/Helmet/Helmet';
-import portada from '../assets/portada.jpg'
+import portada from '../assets/portada.jpg' 
+import Convenios from '../components/Convenios/Convenios';
 
 const Home = () => {
 
@@ -51,20 +49,8 @@ const Home = () => {
         </div>
       </section>
 
-
-      <section>
-
-        <div className='content-services'>
-          <h1 className='title-services'>Nuestro Servicios</h1>
-          <div className='content-img'>
-            <img src={hanco} alt=''className='img-3'/>
-            <img src={rimac}alt='' className='img-1'/>
-            <img src={mafre} alt=''className='img-2'/>
-            <img src={inter} alt=''className='img-4'/>
-          </div>
-        </div>
-
-      </section>
+      <Convenios/>
+   
 
       <section className='section-certif'>
         <div className='content-certif'>

@@ -1,5 +1,5 @@
 import React from "react";
-import back from "../assets/Rectangle 62.png";
+
 import { Link } from "react-router-dom";
 import '../style/register.css'
 import {registerUser} from '../components/api/api_registro.js';
@@ -12,9 +12,7 @@ const Register = () => {
   return (
     <div>
       <div className="content-login">
-        <div className="content-img">
-          <img src={back} alt="" className="login-img" />
-        </div>
+    
             
         <div className="grid">
         

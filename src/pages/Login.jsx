@@ -1,14 +1,15 @@
 import React, {useState} from "react";
-// import back from "../assets/Rectangle 62.png";
+
 import "../style/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+
 
   const navigate = useNavigate();
 
@@ -21,12 +22,15 @@ const Login = () => {
 
       const token = response.data.token;
       localStorage.setItem('token', token);
-      navigate('/historial');
+      toast.success("Login successful")
+      navigate('/home');
       
     } catch (error) {
       // si hay un error, imprimirlo o mostrar el mensaje de error al usuario
+
       console.error(error);
-      setError("Usuario o contraseña incorrectos");
+      
+      toast.error("Usuario o contraseña incorrectos")
     }
   };
 
@@ -74,7 +78,7 @@ const Login = () => {
               </button>
             </div>
           </form>
-          {error && <p className="text--center">{error}</p>}
+         
           <p className="text--center">
             Not a member?{" "}
             <Link to="/register" style={{ color: "#ACD2FF", fontWeight: "bold" }}>
