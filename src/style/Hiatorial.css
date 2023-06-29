@@ -29,7 +29,7 @@
 
 #nombre {
     position: relative;
-    left: 22px;
+    left: -13px;
     font-weight: bold;
 }
 
@@ -95,20 +95,28 @@
     box-shadow: 6px 6px 10px 10px rgba(0, 0, 0, 0.30);
 }
 
-#text-dia{
+#text-dia {
     position: relative;
     left: 50px;
     top: 170px;
 }
 
-#text-tra{
+#text-tra {
     position: relative;
     left: 50px;
     top: 270px;
 }
 
-#text-ra{
+#text-ra {
     position: relative;
     left: 50px;
     top: 370px;
+}
+
+.regresar {
+    border-radius: 10px;
+    background: #288AFF;
+    position: relative;
+    top: 300px;
+    left: -20px;
 }

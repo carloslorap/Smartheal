@@ -21,6 +21,10 @@ const Login = () => {
 
       const token = response.data.token;
       localStorage.setItem('token', token);
+
+      const username1 = response.data.Username;
+      localStorage.setItem("username", username1);
+
       navigate('/historial');
       
     } catch (error) {

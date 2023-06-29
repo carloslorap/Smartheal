@@ -1,43 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
-import axios from 'axios';
-import hist from '../assets/hh.webp'
 import user from '../assets/user.png'
-import usericon from '../assets/user-icon.png'
+import { Link } from 'react-router-dom';
 
 const HistorialUser = () => {
-
-  /* const [userData, setUserData] = useState({});
-  const [resultData, setResultData] = useState({});
-
-  const fetchUserData = async () => {
-    try {
-      const response = await axios.get('https://smarth-user-service.up.railway.app/usuarios');
-      const user = response.data.find(user => user.userid === 78102455);
-      setUserData(user);
-      
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-  const fetchResultData = async () => {
-    try {
-      const response = await axios.get('https://smarth-resultdado-service.up.railway.app/resultado');
-      const result = response.data.find(result => result.idResult === 1);
-      setResultData(result);
-      
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUserData();
-    fetchResultData()
-  }, []); */
 
   return (
     <Container>
@@ -66,6 +33,10 @@ const HistorialUser = () => {
           </div>
 
           <button class="boton">Editar numero de celular</button>
+
+          <Link to="/historial">
+            <button class="regresar">regresar</button>
+          </Link>
 
         </div>
       </div>
