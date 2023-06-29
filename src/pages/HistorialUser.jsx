@@ -1,12 +1,15 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
 import axios from 'axios';
 import hist from '../assets/hh.webp'
+import user from '../assets/user.png'
+import usericon from '../assets/user-icon.png'
+import { Link } from 'react-router-dom';
 
 const HistorialUser = () => {
 
-  const [userData, setUserData] = useState({});
+  /* const [userData, setUserData] = useState({});
   const [resultData, setResultData] = useState({});
 
   const fetchUserData = async () => {
@@ -35,63 +38,92 @@ const HistorialUser = () => {
   useEffect(() => {
     fetchUserData();
     fetchResultData()
-  }, []);
+  }, []); */
 
   return (
     <Container>
 
-     <div className='content_general'>
-    <div className='content_his'>
-        <h1 className='his_title'>Medical History</h1>
 
-        <h4 className='his_subtitle'>Information of the Patiente</h4>
-      
-        <div className='his_label'>
-          <label>Name:</label>
-          <p className='his_date'>{userData.username}</p>
-        </div>
-        <div className='his_label'>
-          <label>Lastname:</label>
-          <p className='his_date'>{userData.lastname}</p>
-        </div>
-        <div className='his_label'>
-          <label>Birthdate:</label>
-          <p className='his_date'>{userData.birthdate}</p>
-        </div>
-        <div className='his_label'>
-          <label>Phone:</label>
-          <p className='his_date'>{userData.phone}</p>
-        </div>
+      <div class="container">
+        <div class="cuadro">
+          <img class="user" src={user} />
 
-        <h4 className='his_subtitle'>Medical Results</h4>
-        <div className='his_label'>
-          <label>Name Medic:</label>
-          <p className='his_date'>{resultData.nameMedic}</p>
+          {/* cuadro del usuario */}
+          <div class="text-usuario">
+            <h5 id="nombre">usuario</h5>
+            <p>DNI: 00000000</p>
+          </div>
+
+          {/* cuadro del nombre completo */}
+          <div class="text-nombreCompleto">
+            <h5>Nombre Completo</h5>
+            <p>nombre-completo</p>
+          </div>
+
+          {/* cuadro del telefono */}
+          <div class="text-telefono">
+            <h5>Numero de celular</h5>
+            <p>+51987567345</p>
+          </div>
+
+          <button class="boton">Editar numero de celular</button>
+
         </div>
-        <div className='his_label'>
-          <label>Name Specialty:</label>
-          <p className='his_date'>{resultData.nameSpecialty}</p>
-        </div>
-        <div className='his_label'>
-          <label>Diagnosis:</label>
-          <p className='his_date'>{resultData.diagnosis}</p>
-        </div>
-        <div className='his_label'>
-          <label>Treatment:</label>
-          <p className='his_date'>{resultData.treatment}</p>
-        </div>
-        <div className='his_label other'>
-          <label>Recommendations:</label>
-          <p className='his_date'>{resultData.recommendations}</p>
-        </div>
-        </div>
-        <div className='content_img'>
-          <img src={hist} alt='jef'/>
-        </div>
-      
       </div>
+
+      <div class="clinic-table-container">
+        <div class="clinic-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Perfil</th>
+                <th>Doctor</th>
+                <th>Especialidad</th>
+                <th>Fecha</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src={usericon} alt="" /></td>
+                <td>John Doe</td>
+                <td>especialidad</td>
+                <td>18/05/2023</td>
+                <td>
+                  <Link to="/historial2">
+                    <button>ver mas</button>
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td><img src={usericon} alt="" /></td>
+                <td>Jane Smith</td>
+                <td>especialidad</td>
+                <td>10/09/2023</td>
+                <td>
+                  <Link to="/historial2">
+                    <button>ver mas</button>
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td><img src={usericon} alt="" /></td>
+                <td>Carlos García</td>
+                <td>especialidad</td>
+                <td>08/12/2023</td>
+                <td>
+                  <Link to="/historial2">
+                    <button>ver mas</button>
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </Container>
-    
+
   )
 }
 
