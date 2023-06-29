@@ -140,7 +140,7 @@
   }
   
   
-/* Resto de tus estilos CSS */
+
 
 .doctor-location {
   background-color: #ccc;
@@ -152,3 +152,7 @@
   
 }
 
+.doctor-name {
+  font-size: 28px; 
+  color: #0d1f62; 
+}

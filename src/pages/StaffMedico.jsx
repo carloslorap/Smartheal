@@ -16,7 +16,7 @@ import profile9 from '../assets/profile9.jpg';
 import profile10 from '../assets/profile10.jpg';
 import profile11 from '../assets/profile11.jpg';
 import '../style/staffm.css';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import 'react-tabs/style/react-tabs.css';
 
 
@@ -53,7 +53,7 @@ const StaffMedico = () => {
   }, []);
 
   const handleSearch = () => {
-    // Search logic here
+   
     console.log('Realizando búsqueda...');
     const filteredDoctors = profiles.filter((doctor) => {
       const nameMatch = doctor.name.toLowerCase().includes(searchName.toLowerCase());
@@ -255,7 +255,7 @@ const DoctorCard = ({ profile }) => {
         </div>
         <div className="doctor-details">
           <p>{profile.specialty}</p>
-          <h3>{profile.name}</h3>
+          <h3 className="doctor-name">{profile.name}</h3>
           <p className="doctor-location">Sede: {profile.location}</p>
         </div>
       </div>
