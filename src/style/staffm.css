@@ -1,20 +1,154 @@
-.buscar-medico{
-    text-decoration-color:black ;
-    font-size: large;
-}
-
-.buscar-medico{
-    padding-top: 20%;
-    text-align: center;
-    text-align: center;
-    text-shadow: 1%;   
-
-}
-
-.text-form{ 
+.description {
+    color: white;
+  }
+  
+  .description-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-container input[type="text"],
+  .search-container .react-select-container {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .search-container input[type="text"] {
+    background-color: #fff;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .doctor-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px;
+    align-items: center;
+    padding: 10px;
+    border: 3px solid #0fe46f;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  
+  .profile-image img {
+    width: 250px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 150px;
+  }
+  
+  .rating-section {
+    display: flex;
+    align-items: none;
+    margin-right: 135px;
+  }
+  
+  .rating-section label {
+    margin-right: 25px;
+  }
+  
+  .doctor-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .doctor-info {
+    display: flex;
+    align-items: center;
+    margin-right: 350px;
+    margin-left: 0px;
+  }
+  
+  .profile-image {
+    margin-right: 150px;
+  }
+  
+  .doctor-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-rating-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-section {
+    margin-right: 135px;
+  }
+  
+  .rating-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-button {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid #0d1f62;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .contact-button:hover {
+    background-color: #0d1f62;
+  }
+  
+  .star-rating {
+    font-size: 36px;
+  }
+  
+  .star-rating {
+    width: 200px; 
+    height: 40px; 
+    background-color: #0d1f62; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px; 
+    border-radius: 10px;
+    padding-bottom: 15px; 
+  }
+  
+  
+  .star {
+    color: gold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: gold;
+  }
+  
+  .star.active {
+    color: gold;
+  }
+  
+  
+/* Resto de tus estilos CSS */
 
-
-
+.doctor-location {
+  background-color: #ccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 20px;
+  width: 120px;
+  
 }
 

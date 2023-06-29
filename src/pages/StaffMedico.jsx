@@ -1,170 +1,292 @@
-import "../style/staffm.css";
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+import React, { useState, useEffect } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import Select from 'react-select';
+import { Link } from 'react-router-dom';
+import { FaStar, FaRegStar } from 'react-icons/fa';
+import medicos from '../assets/nuestros-medicos.jpg';
+import profile1 from '../assets/profile1.jpg';
+import profile2 from '../assets/profile2.jpg';
+import profile3 from '../assets/profile3.jpg';
+import profile4 from '../assets/profile4.jpg';
+import profile5 from '../assets/profile5.jpg';
+import profile6 from '../assets/profile6.jpg';
+import profile7 from '../assets/profile7.jpg';
+import profile8 from '../assets/profile8.jpg';
+import profile9 from '../assets/profile9.jpg';
+import profile10 from '../assets/profile10.jpg';
+import profile11 from '../assets/profile11.jpg';
+import '../style/staffm.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
-const StaffMedico= () => {
+const profiles = [
+  { id: 1, name: 'Antonio Garcia Garcia', location: 'S.J.L.', specialty: 'Medicina General', profileImage: profile1 },
+  { id: 2, name: 'Nayib Elias Abuhadba Rodriguez', location: 'S.J.L.', specialty: 'Medicina Interna', profileImage: profile2 },
+  { id: 3, name: 'Eduardo Manuel Acevedo Vásquez', location: 'S.J.L.', specialty: 'Ginecología y Obstetricia', profileImage: profile3 },
+  { id: 4, name: 'Teresa Morcillo Molina', location: 'S.J.L.', specialty: 'Cardiología', profileImage: profile4 },
+  { id: 5, name: 'Fernando Jose Alarcon Tebar', location: 'S.J.L.', specialty: 'Dermatología', profileImage: profile5 },
+  { id: 6, name: 'Ruben Santiago Pardo Requena', location: 'S.J.L.', specialty: 'Neurología', profileImage: profile6 },
+  { id: 7, name: 'Ramon Enrique Ortega Cano', location: 'S.J.L.', specialty: 'Urología', profileImage: profile7 },
+  { id: 8, name: 'Alvaro Paul Corcoles Blazquez', location: 'S.J.L.', specialty: 'Psiquiatría', profileImage: profile8 },
+  { id: 9, name: 'Ivan Adrian Rodenas Ballesteros', location: 'S.J.L.', specialty: 'Endocrinología', profileImage: profile9 },
+  { id: 10, name: 'Ana María Abugattas Saba', location: 'S.J.L.', specialty: 'Pediatría', profileImage: profile10 },
+  { id: 11, name: 'Lisbeth Gladys Acorda Sifuentes', location: 'S.J.L.', specialty: 'Otorrinolaringología', profileImage: profile11 },
+];
 
+const StaffMedico = () => {
+  const [selectedSpecialty, setSelectedSpecialty] = useState(null);
+  const [filteredDoctors, setFilteredDoctors] = useState(profiles);
+  const [searchSpecialty, setSearchSpecialty] = useState(null);
+  const [searchName, setSearchName] = useState('');
+  useEffect(() => {
+   
+    profiles.forEach((profile) => {
+      const storedRating = localStorage.getItem(`rating_${profile.id}`);
+      if (storedRating) {
+        profile.rating = parseInt(storedRating);
+      } else {
+        profile.rating = 0;
+      }
+    });
+    setFilteredDoctors(profiles);
+  }, []);
 
-return (
-    
-  <div className="buscar-medico">
-  <Form >
- 
-
-  <Form.Group className="mb-3" controlId="formBasicSearch">
-    <Form.Label className="tittle">
-      <h1>Encuentra al especialista que necesitas  </h1>
-      </Form.Label>
-
-    <Form.Control className="text-form"type="form" placeholder="Ejmp. Doctor Suarez" />
-  </Form.Group>
+  const handleSearch = () => {
+    // Search logic here
+    console.log('Realizando búsqueda...');
+    const filteredDoctors = profiles.filter((doctor) => {
+      const nameMatch = doctor.name.toLowerCase().includes(searchName.toLowerCase());
+      const specialtyMatch = searchSpecialty ? doctor.specialty === searchSpecialty.value : true;
+      return nameMatch && specialtyMatch;
+    });
+    setFilteredDoctors(filteredDoctors);
+  };
   
-  <Button variant="outline-success"classNmae="search-botton" size="lg" type="submit">
-    Buscar
-  </Button>
-
-</Form>
-<div>
-
+  const handleSpecialtySearch = () => {
+    console.log('Realizando búsqueda por especialidad:', selectedSpecialty);
+    const filteredDoctors = profiles.filter((doctor) => {
+      const nameMatch = doctor.name.toLowerCase().includes(searchName.toLowerCase());
+      const specialtyMatch = selectedSpecialty ? doctor.specialty === selectedSpecialty.value : true;
+      return nameMatch && specialtyMatch;
+    });
+    setFilteredDoctors(filteredDoctors);
+  };
   
-<Form.Select aria-label="Default select example">
-      <option>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </Form.Select>
 
+
+  const handleSpecialtyChange = (selectedOption) => {
+    setSelectedSpecialty(selectedOption);
+  };
+  
+
+
+
+  const handleDoctorSearch = (event) => {
+    const searchValue = event.target.value;
+    if (searchValue === '') {
+      setFilteredDoctors(profiles);
+    } else {
+      const filtered = profiles.filter((doctor) =>
+        doctor.name.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredDoctors(filtered);
+    }
+  };
+
+  const specialtyOptions = [
+    { value: 'Medicina General', label: 'Medicina General' },
+    { value: 'Medicina Interna', label: 'Medicina Interna' },
+    { value: 'gineyobs', label: 'Ginecología y Obstetricia' },
+    { value: 'Ginecología y Obstetricia', label: 'Cardiología' },
+    { value: 'Dermatología', label: 'Dermatología' },
+    { value: 'Neurología', label: 'Neurología' },
+    { value: 'Urología', label: 'Urología' },
+    { value: 'Psiquiatría', label: 'Psiquiatría' },
+    { value: 'Endocrinología', label: 'Endocrinología' },
+    { value: 'Pediatría', label: 'Pediatría' },
+    { value: 'Otorrinolaringología', label: 'Otorrinolaringología' },
+  ];
+  return (
+    <div className="img-medicos">
+      <img src={medicos} alt="Medicos" className="image" />
+
+      <div className="form-card text-center">
+        <div className="text-contact">
+          <div className="message">
+            <h1 className="escribenos">Siempre listos para cuidarte</h1>
+          </div>
+          <div className="form-description">
+            <h5>Contamos con más de 20 profesionales en más de 10 especialidades</h5>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '100px' }}>
+        <div
+          style={{
+            backgroundColor: '#071347f1',
+            height: '75px',
+            width: '70%',
+            borderBottomLeftRadius: '30px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <div className="description-container" style={{ margin: '0 100px' }}>
+            <p className="description">Busca profesionales por nombre o especialidades</p>
+          </div>
+          <div className="search-container" style={{ margin: '0 80px', display: 'flex' }}>
+            <div style={{ position: 'relative', height: '39px' }}>
+              <input
+                type="text"
+                placeholder="Ingrese el nombre"
+                style={{ width: '230px', marginRight: '40px', borderBottomLeftRadius: '15px', height: '100%' }}
+                onChange={handleDoctorSearch}
+              />
+              <BiSearch
+  className="search-icon"
+  onClick={handleSearch}
+  style={{
+    position: 'absolute',
+    top: '50%',
+    right: '55px',
+    transform: 'translateY(-50%)',
+    cursor: 'pointer',
+  }}
+/>
+
+            </div>
+
+
+            <div style={{ position: 'relative', width: '300px', height: '40px' }}>
+            <Select
+  options={specialtyOptions}
+  value={selectedSpecialty}
+  onChange={handleSpecialtyChange} 
+  placeholder="Buscar especialidad"
+  styles={{
+    control: (provided) => ({
+      ...provided,
+      borderBottomLeftRadius: '15px',
+      borderColor: '#ccc',
+      height: '39px',
+    }),
+  }}
+/>
+
+  <BiSearch
+    className="search-icon"
+    onClick={handleSpecialtySearch}
+    style={{
+      position: 'absolute',
+      top: '50%',
+      right: '55px',
+      transform: 'translateY(-50%)',
+      cursor: 'pointer',
+    }}
+  />
 </div>
+          </div>
+        </div>
+      </div>
 
+      
+      <div className="doctor-list">
+        {filteredDoctors.map((doctor) => (
+          <DoctorCard key={doctor.id} profile={doctor} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
+const DoctorCard = ({ profile }) => {
+  const [rating, setRating] = useState(profile.rating || 0); 
+  const [hoveredRating, setHoveredRating] = useState(0); 
+  const handleRatingClick = (value) => {
+   
+    setRating(value);
+    localStorage.setItem(`rating_${profile.id}`, value);
+  };
 
-<div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
+  const handleContact = () => {
+    console.log(`Contacting ${profile.name}`);
+  
+  };
 
+  const handleRatingChange = (value) => {
+    setRating(value);
+    switch (value) {
+      case 1:
+        alert('Gracias por su calificación de 1 estrella, ¡prometemos mejorar!');
+        break;
+      case 2:
+        alert('Gracias por su calificación de 2 estrellas, ¡prometemos mejorar!');
+        break;
+      case 3:
+        alert('Gracias por su calificación de 3 estrellas, ¡prometemos mejorar!!');
+        break;
+      case 4:
+        alert('Gracias por su calificación de 4 estrellas, ¡esperamos volver a verte!');
+        break;
+      case 5:
+        alert('Gracias por su calificación de 4 estrellas, ¡esperamos volver a verte!');
+        break;
+      default:
+        break;
+    }
+  };
 
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- <div>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
- </div>
- </div>
+  const handleRatingHover = (value) => {
+    setHoveredRating(value);
+  };
 
+  const handleRatingLeave = () => {
+    setHoveredRating(0);
+  };
 
-  )
-}
+  return (
+    <div className="doctor-card">
+      <div className="doctor-info">
+        <div className="profile-image">
+          <img src={profile.profileImage} alt="Doctor Profile" />
+        </div>
+        <div className="doctor-details">
+          <p>{profile.specialty}</p>
+          <h3>{profile.name}</h3>
+          <p className="doctor-location">Sede: {profile.location}</p>
+        </div>
+      </div>
+      <div className="contact-rating-section">
+        <div className="contact-section">
+          <Link to="/contact">
+            <button className="contact-button" onClick={handleContact}>
+              Conoce más aquí
+            </button>
+          </Link>
+        </div>
 
+        <div className="rating-section">
+          <label>Valorar:</label>
+          <div className="star-rating" onMouseLeave={handleRatingLeave}>
+            {[1, 2, 3, 4, 5].map((value) => (
+              <span
+                key={value}
+                className={hoveredRating >= value ? 'star active' : 'star'}
+                onClick={() => handleRatingChange(value)}
+                onMouseEnter={() => handleRatingHover(value)}
+                onMouseLeave={() => setHoveredRating(0)}
+              >
+                {value <= (hoveredRating || rating) ? <FaStar /> : <FaRegStar />}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default StaffMedico
+export default StaffMedico;
