@@ -15,7 +15,7 @@
 
 }
 .navigation{ 
-    padding-left:15rem;
+    padding-left:9rem;
 }
 
 .logo{
@@ -41,8 +41,7 @@
     align-items: center;
     column-gap: 2.7rem;
     margin-bottom: 0;
-  
-    
+    margin-right: 9rem;
    
 }
 
@@ -138,13 +137,12 @@
 }
 
 .content_nav-main{
-  
     display: flex;
-    flex-direction: column;
     align-items: center;
     margin-left: auto;
     cursor: pointer;
     position: relative;
+    gap: 0.5rem;
 }
 
 .content_nav-second{
@@ -171,6 +169,7 @@
 .name_user{
     color: var(--primary-color);
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 

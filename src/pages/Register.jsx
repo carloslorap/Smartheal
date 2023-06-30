@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import '../style/register.css'
 import {registerUser} from '../components/api/api_registro.js';
@@ -30,7 +29,7 @@ const Register = () => {
             };
 
             registerUser(userRegistre);
-
+            navigate("/login")
             console.log(userRegistre);
 
             

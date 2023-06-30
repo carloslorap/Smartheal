@@ -27,7 +27,8 @@ const Login = () => {
       const username1 = response.data.Username;
       localStorage.setItem("username", username1);
 
-      navigate('/historial');
+      navigate('/home');
+      toast.success('Login Success')
 
      
 

@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import '../style/home.css'
 import Doc from '../assets/doc.jpg'
 import Services from '../services/services';
-import { useSelector } from 'react-redux'
+
 import icon from '../assets/Rectangle 78.png'
 import Helmet from '../components/Helmet/Helmet';
 import portada from '../assets/portada.jpg' 
 import Convenios from '../components/Convenios/Convenios';
 
+
 const Home = () => {
 
   const year =new Date().getFullYear();
-  const {user }=useSelector((state) => state.user)
-  
+
+
+ 
   return (
     <Helmet title={'Home'}>
     <section className='hero_section'>
