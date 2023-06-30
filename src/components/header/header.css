@@ -137,6 +137,42 @@
     
 }
 
+.content_nav-main{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    cursor: pointer;
+    position: relative;
+}
+
+.content_nav-second{
+    position: absolute;
+    z-index: 10;
+    top: 4.3rem;  
+    right: 0px;
+    width: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    box-shadow: 0 15px 20px rgba(48, 46, 77, 0.15) ;
+}
+.content_nav-second p{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-weight: 500;
+    height: 50px;
+}
+.name_user{
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
 
 
 @media only screen and (max-width: 768px) {

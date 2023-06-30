@@ -15,7 +15,7 @@ const Servicios = () => {
               necesitan compartir información médica con otros proveedores de
               atención medica.
             </p>
-            <i class="ri-health-book-fill"></i>
+            <i className="ri-health-book-fill"></i>
           </div>
           <div className="item_services">
             <h4>Programación de citas en línea</h4>
@@ -24,7 +24,7 @@ const Servicios = () => {
               línea ya que esto será conveniente para los pacientes que no
               tienen tiempo para llamar o visitar a la clínica persona.
             </p>
-            <i class="ri-global-line"></i>
+            <i className="ri-global-line"></i>
           </div>
           <div className="item_services">
             <h4>Recibir resultados de exámenes clínicos</h4>
@@ -33,7 +33,7 @@ const Servicios = () => {
               rápida y segura. Simplifica tu vida y únete a nuestra comunidad
               hoy mismo.
             </p>
-            <i class="ri-bar-chart-box-fill"></i>
+            <i className="ri-bar-chart-box-fill"></i>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Servicios = () => {
         <div className="content_desc-2">
             <div className="desc_item">
                 <div className="sub_item">
-                <i class="ri-map-pin-2-fill"></i>
+                <i className="ri-map-pin-2-fill"></i>
                 <h4 className="title_desc">Red de clínicas a nivel nacional</h4>
                 </div>
                 <p>Estamos presente en donde nos necesites, contamos con sedes en más de 10 distritos de Lima.</p>
@@ -57,7 +57,7 @@ const Servicios = () => {
 
             <div className="desc_item">
                 <div className="sub_item">
-                <i class="ri-nurse-fill"></i>
+                <i className="ri-nurse-fill"></i>
                 <h4 className="title_desc">Los mejores médicos en nuestro staff</h4>
                 </div>
                 <p>Nuestro personal esta al servicio del publico, por que contamos con el mejor de staff de médicos.</p>
@@ -65,7 +65,7 @@ const Servicios = () => {
 
             <div className="desc_item">
                 <div className="sub_item">
-                <i class="ri-user-3-fill"></i>
+                <i className="ri-user-3-fill"></i>
                 <h4 className="title_desc">Atención  online 24/7</h4>
                 </div>
                 <p>¿No hay tiempo para recorrer resultado de manera presencia? Nuestra plataforma esta a disposición de nuestros pacientes las 24 horas del día.</p>

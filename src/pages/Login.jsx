@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import { motion } from 'framer-motion';
 import "../style/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -22,8 +22,8 @@ const Login = () => {
 
       const token = response.data.token;
       localStorage.setItem('token', token);
-      toast.success("Login successful")
-      navigate('/home');
+      // toast.success("Login successful")
+      // navigate('/home');
       
     } catch (error) {
       // si hay un error, imprimirlo o mostrar el mensaje de error al usuario
@@ -73,9 +73,9 @@ const Login = () => {
               />
             </div>
             <div className="form_field">
-              <button className="submitButton" type="submit">
+              <motion.button whileTap={{scale:0.95}} className="submitButton" type="submit">
                 Ingresar
-              </button>
+              </motion.button>
             </div>
           </form>
          

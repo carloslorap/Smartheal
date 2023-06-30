@@ -18,38 +18,35 @@ const Register = () => {
         
  
           <form onSubmit={(event) => {
-            //para enviar la informacionn
+            //para enviar la informacion
             event.preventDefault();
             const userRegistre = {
-              id: event.target.id.value,
-              nombre: event.target.nombre.value,
-              apellido: event.target.apellido.value,
-              fecha_nacimiento: event.target.fecha_nacimiento.value,
-              correo_electronico: event.target.correo_electronico.value,
-              contrasena: event.target.contrasena.value,
-              telefono: event.target.telefono.value
+              userid: event.target.userid.value,
+              username: event.target.username.value,
+              lastname: event.target.lastname.value,
+              birthdate: event.target.birthdate.value,
+              password: event.target.password.value,
+              phone: event.target.phone.value
             };
 
             registerUser(userRegistre);
 
             console.log(userRegistre);
 
-            toast.success('Account created')
-
-            navigate('/login')
+            
         
           }} 
           
-          class="form login">
+          className="form login">
           <h2 className="title1">Enter your details correctly</h2>
             <div className="form-1">
               <div className="form_field1">
                 <label>
-                <i class="ri-psychotherapy-fill"></i>
+                <i className="ri-psychotherapy-fill"></i>
                 </label>
                 <input
                   type="text"
-                  name="nombre"
+                  name="username"
                   className="form_input1"
                   placeholder="Name"
                   required
@@ -57,11 +54,11 @@ const Register = () => {
               </div>
               <div className="form_field1 field-1">
                 <label>
-                <i class="ri-heart-pulse-fill"></i>
+                <i className="ri-heart-pulse-fill"></i>
                 </label>
                 <input
                   type="text"
-                  name="apellido"
+                  name="lastname"
                   className="form_input1"
                   placeholder="Last name"
                   required
@@ -69,11 +66,11 @@ const Register = () => {
               </div>
               <div className="form_field1 ">
                 <label>
-                <i class="ri-calendar-2-fill"></i>
+                <i className="ri-calendar-2-fill"></i>
                 </label>
                 <input
                   type="date"
-                  name="fecha_nacimiento"
+                  name="birthdate"
                   className="form_input1"
                   placeholder="Birthday Date"
                   required
@@ -81,11 +78,11 @@ const Register = () => {
               </div>
               <div className="form_field1 field-1">
                 <label>
-                <i class="ri-phone-fill"></i>
+                <i className="ri-phone-fill"></i>
                 </label>
                 <input
                   type="text"
-                  name="telefono"
+                  name="phone"
                   className="form_input1"
                   placeholder="Phone Number"
                   required
@@ -97,35 +94,24 @@ const Register = () => {
 
             <div className="form_field">
               <label>
-                <i class="ri-profile-fill"></i>
+                <i className="ri-profile-fill"></i>
               </label>
               <input
                 type="text"
-                name="id"
+                name="userid"
                 className="form_input"
                 placeholder="Document number"
                 required
               />
             </div>
+        
             <div className="form_field">
               <label>
-              <i class="ri-mail-line"></i>
-              </label>
-              <input
-                type="email"
-                name="correo_electronico"
-                className="form_input"
-                placeholder="Email"
-                required
-              />
-            </div>
-            <div className="form_field">
-              <label>
-                <i class="ri-lock-fill"></i>
+                <i className="ri-lock-fill"></i>
               </label>
               <input
                 type="password"
-                name="contrasena"
+                name="password"
                 className="form_input"
                 placeholder="Password"
                 required

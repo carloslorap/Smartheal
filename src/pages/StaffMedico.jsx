@@ -22,7 +22,7 @@ return (
     <Form.Control className="text-form"type="form" placeholder="Ejmp. Doctor Suarez" />
   </Form.Group>
   
-  <Button variant="outline-success"classNmae="search-botton" size="lg" type="submit">
+  <Button variant="outline-success"className="search-botton" size="lg" type="submit">
     Buscar
   </Button>
 
