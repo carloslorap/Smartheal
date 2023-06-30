@@ -27,6 +27,7 @@
     margin-top: 60px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
    
 }
 
@@ -40,15 +41,23 @@
     text-align: center;
     border: 2px solid white;
     background: var(--card-bg-02);
+    transition: all 400ms ease;
   
 }
 
+.item_special:hover{
+    background:#bcd4f7;
+    border: 2px solid var(--card-bg-02);
+    
+}
+ 
 .title_special{
     margin-top: 90px;
 }
 .title_special h4{
     color: white;
 }
+
 .subtitle_special{
     display: flex;
     justify-content: center;

@@ -9,7 +9,7 @@ const Convenios = () => {
     <section>
 
     <div className='content-services'>
-      <h1 className='title-services'>Nuestro Servicios</h1>
+      <h1 className='title-services'>Our Agreements</h1>
       <div className='content-img'>
         <img src={hanco} alt=''className='img-3'/>
         <img src={rimac}alt='' className='img-1'/>

@@ -17,7 +17,7 @@ const Specialties = () => {
           <img src={Special} alt='medic'/>
         </div>
       </div>
-
+ 
     <div className='content_special-item'>
       <div className='item_special'>
         <div className='title_special'>

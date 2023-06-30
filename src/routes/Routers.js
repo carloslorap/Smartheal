@@ -46,8 +46,9 @@ const Routers = () => {
             <Route path='dashboard/users' element={<Users/>}/>
 
 
-            <Route path='dashboardoc' element={<DashboarDoc/>}/>
-            <Route path='dashboardoc/HistorialMed' element={<HistorialMed/>}/>
+
+            <Route path='PortalDoc' element={<DashboarDoc/>}/>
+            <Route path='PortalDoc/HistorialMed' element={<HistorialMed/>}/>
            
 
         </Routes>

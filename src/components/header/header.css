@@ -41,7 +41,7 @@
     align-items: center;
     column-gap: 2.7rem;
     margin-bottom: 0;
-    margin-right: 9rem;
+    
    
 }
 
@@ -155,7 +155,9 @@
     flex-direction: column;
     align-items: center;
     background: white;
-    box-shadow: 0 15px 20px rgba(48, 46, 77, 0.15) ;
+    box-shadow: 9px 7px 5px 0px rgba(74, 70, 70, 0.03);
+  -webkit-box-shadow: 9px 7px 5px 0px rgba(74, 70, 70, 0.03);
+  -moz-box-shadow: 9px 7px 5px 0px rgba(74, 70, 70, 0.03);
 }
 .content_nav-second p{
     display: flex;

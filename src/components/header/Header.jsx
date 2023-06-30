@@ -37,6 +37,7 @@ const Header = () => {
   ];
 
   const headerRef = useRef(null);
+  const [isMenu, setIsMenu] = useState(false);
 
   const menuRef = useRef(null);
 
@@ -127,6 +128,8 @@ const Header = () => {
             </div>
 
            {/* inserta */}
+
+  
           {
             rolUsuario === 'PATIENT' && (
               <MenuPaciente/>

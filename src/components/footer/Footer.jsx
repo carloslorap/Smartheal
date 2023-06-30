@@ -24,46 +24,46 @@ const Footer = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio error id ducimus labore praesentium nisi, doloribus tempore dolorum consequatur est.
                 </p>
           </Col>
-          <Col lg='3'  className='mb-4' md='3'>
+          <Col lg='2'md='3'  className='mb-4' >
             <div className='footer_quick-links'>
-              <h4 className='quick_links-title'>Top Categories</h4>
+              <h4 className='quick_links-title'>Quick Links</h4>
               <ListGroup className='mb-3'>
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Mobile Phones</Link>
+                  <Link to='#'>About Us</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Modern Sofa</Link>
+                  <Link to='#'>Services</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Arm Chair</Link>
+                  <Link to='#'>Booking</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Smart Watches</Link>
+                  <Link to='#'>Out Team</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>
           </Col>
-          <Col lg='2' md='3' className='mb-4'>
+          <Col lg='3' md='3' className='mb-4'>
           <div className='footer_quick-links'>
-              <h4 className='quick_links-title'>Useful Links</h4>
+              <h4 className='quick_links-title'>Our Services</h4>
               <ListGroup className='mb-3'>
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='/shop'>shop</Link>
+                  <Link to='/shop'>Dental Care</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='/cart'>Cart</Link>
+                  <Link to='/cart'>Cardial Clinic</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='/login'>Login</Link>
+                  <Link to='/login'>Massage Therapy</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#'>Private Policy</Link>
+                  <Link to='#'>Cardiology</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>

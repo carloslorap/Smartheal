@@ -6,7 +6,7 @@ import Doc from '../assets/doc.jpg'
 import Services from '../services/services';
 
 import icon from '../assets/Rectangle 78.png'
-import Helmet from '../components/Helmet/Helmet';
+
 import portada from '../assets/portada.jpg' 
 import Convenios from '../components/Convenios/Convenios';
 
@@ -18,7 +18,8 @@ const Home = () => {
 
  
   return (
-    <Helmet title={'Home'}>
+   
+    <div>
     <section className='hero_section'>
         
             
@@ -41,7 +42,7 @@ const Home = () => {
 
       <Services/>
 
-
+{/* 
       <section className='section-info'>
         <div className='content-info'>
           <img src={portada} alt=''/>
@@ -50,7 +51,52 @@ const Home = () => {
             <p className='info-parrafo'>Médicos de primer nivel y los tecnólogos médicos  <br/>más especializados,  forman parte del staff de<br/> Clínica Internacional, han sido capacitados en<br/> las  más modernas aplicaciones que existen en el sector salud.</p>
           </div>
         </div>
-      </section>
+      </section> */}
+<section className="categories">
+        <div className="container categories_container">
+            <div className="categories_left">
+                <h1>Specialties</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dicta, perspiciatis quidem velit eos unde tempora sunt labore quis in deserunt aspernatur nostrum debitis eum illo eius ullam cumque necessitatibus.</p>
+                <motion.button whileTap={{scale:1.2}} className='buy_btn'>LEARN MORE</motion.button>
+            </div>
+            <div className="categories_right">
+                <article className="category">
+                    <span className="category_icon"><i className="ri-lungs-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+                <article className="category">
+                    <span className="category_icon"><i className="ri-surgical-mask-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+                <article className="category">
+                    <span className="category_icon"><i className="ri-stethoscope-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+                <article className="category">
+                    <span className="category_icon"><i className="ri-virus-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+                <article className="category">
+                    <span className="category_icon"><i className="ri-brain-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+                <article className="category">
+                    <span className="category_icon"><i className="ri-heart-pulse-line"></i></span>
+                    <h5>Blockchain</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, </p>
+                </article>
+            </div>
+        </div>
+
+    </section>
+
+
+
 
       <Convenios/>
    
@@ -61,13 +107,13 @@ const Home = () => {
           <p className='certif-title'>Joint Commission<br/> International</p>
         </div>
         <div className='certif-text'>
-          <p>Todos nuestras sedes están acreditadas por Joint Commission International, máxima distinción internacional otorgada a una entidad de salud.</p>
+          <p>All our offices are accredited by the Joint Commission International, the highest international distinction awarded to a health entity.</p>
         </div>
       </section>
 
 
-      </Helmet>
-     
+    
+     </div>
   )
 }
 
