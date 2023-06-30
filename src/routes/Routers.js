@@ -6,6 +6,7 @@ import Specialties from '../pages/Specialties'
 import Register from '../pages/Register';
 import Dashboard from '../admin/Dashboard';
 import HistorialUser from '../pages/HistorialUser';
+import HistorialUser2 from '../pages/HistorialUser2';
 
 
 import Users from '../admin/Users';
@@ -26,7 +27,10 @@ const Routers = () => {
             <Route path='contact' element={<Contact/>}/>
             <Route path='Staff' element={<StaffMedico/>}/>
             <Route path='historial' element={<HistorialUser/>}/>
-            {/* <Route path='services' element={<Servicios/>}/> */}
+
+            <Route path='historial2' element={<HistorialUser2/>}/>
+
+
             <Route path='specialties' element={<Specialties/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='register' element={<Register/>}/>

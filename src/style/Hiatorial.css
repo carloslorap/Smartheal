@@ -1,36 +1,122 @@
-.content_general{
-  display: flex;
-    }
-.his_title{
-    font-weight: 700; 
-    margin-top: 4%;
-    color: var(--heading-text-color);
+.cuadro {
+    width: 422px;
+    height: 702px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.30);
 }
 
-.his_subtitle{
-    
-    margin: 30px 0px 20px ;
-}
-
-.his_label{
+.container {
     display: flex;
-    column-gap: 0.5rem;
-    margin-bottom: 10px;
-    color: var( --small-text-color);
+    justify-content: space-between;
 }
 
-.other{
-    margin-bottom: 50px;
-    width: 650px;
+.user {
+    width: 138px;
+    height: 130px;
+    flex-shrink: 0;
+    position: relative;
+    left: 160px;
+    top: 70px;
 }
-.his_date{
-    font-size:16px;
-    color: black;
-    
+
+.text-usuario {
+    position: relative;
+    left: 165px;
+    top: 70px;
 }
-.content_img{
-    position: absolute;
-    right: 0;
-    width: 24.2rem;
-    margin-left: 60px;
+
+#nombre {
+    position: relative;
+    left: -13px;
+    font-weight: bold;
+}
+
+.text-nombreCompleto {
+    position: relative;
+    left: 40px;
+    top: 140px;
+}
+
+.text-telefono {
+    position: relative;
+    left: 40px;
+    top: 180px;
+}
+
+.boton {
+    border-radius: 10px;
+    background: #288AFF;
+    position: relative;
+    flex-shrink: 0;
+    left: 110px;
+    top: 240px;
+    color: #FFF;
+}
+
+.clinic-table-container {
+    width: calc(100% - 100px);
+    position: relative;
+    top: 120px;
+}
+
+.clinic-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.clinic-table th,
+.clinic-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.clinic-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.clinic-table tbody tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+.clinic-table tbody td:first-child {
+    text-align: left;
+}
+
+.historialMedic {
+    width: 782px;
+    height: 702px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 6px 6px 10px 10px rgba(0, 0, 0, 0.30);
+}
+
+#text-dia {
+    position: relative;
+    left: 50px;
+    top: 170px;
+}
+
+#text-tra {
+    position: relative;
+    left: 50px;
+    top: 270px;
+}
+
+#text-ra {
+    position: relative;
+    left: 50px;
+    top: 370px;
+}
+
+.regresar {
+    border-radius: 10px;
+    background: #288AFF;
+    position: relative;
+    top: 300px;
+    left: -20px;
 }

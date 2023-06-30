@@ -22,8 +22,15 @@ const Login = () => {
 
       const token = response.data.token;
       localStorage.setItem('token', token);
-      // toast.success("Login successful")
-      // navigate('/home');
+
+
+      const username1 = response.data.Username;
+      localStorage.setItem("username", username1);
+
+      navigate('/historial');
+
+     
+
       
     } catch (error) {
       // si hay un error, imprimirlo o mostrar el mensaje de error al usuario
