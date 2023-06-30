@@ -2,7 +2,7 @@ import React from 'react'
 import {Container,Row,Col, Form,FormGroup} from 'reactstrap';
 import '../style/product-details.css'
 import {registerDoc} from '../components/api/Add_doc.js'
- import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 const AddDoctors = () => {
 

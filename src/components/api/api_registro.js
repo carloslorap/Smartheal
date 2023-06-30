@@ -1,17 +1,21 @@
+
 import axios from "axios";
+
+import { toast } from "react-toastify";
 
 //conexion con la api ruta pacientess
 export const registerUser = (userRegistre) => {
-    // asigando el rol_id numero 2 automaticamente
-    userRegistre.rol_id = {"id":2,"nombre":"cliente","estado":true};
-    userRegistre.estado = true;
-    axios.post('https://smarthhealth360.up.railway.app/home/paciente', userRegistre)
+    
+ 
+    axios.post('https://smarth-user-service.up.railway.app/register',userRegistre)
       .then(response => {
         console.log(response.data); 
         // handle success response
+        toast.success('Account created') 
       })
       .catch(error => {
         console.log(error.response.data);
+        toast.error('Account Failed')
         // handle error response
       });
   };

@@ -19,26 +19,26 @@ const DashboarDoc = () => {
               <Link to='HistorialMed'>
               <div className='revenue_box'>
                 <h5>Historial Medico</h5>
-                <span><i class="ri-health-book-fill"></i></span>
+                <span><i className="ri-health-book-fill"></i></span>
               </div>
               </Link>
             </Col>
             <Col className='lg-3'>
             <div className='order_box'>
                 <h5>Configuracion</h5>
-                <span><i class="ri-settings-3-fill"></i></span>
+                <span><i className="ri-settings-3-fill"></i></span>
               </div>
             </Col>
             <Col className='lg-3'>
             <div className='products_box'>
                 <h5>Pacients</h5>
-                <span><i class="ri-user-heart-line"></i></span>
+                <span><i className="ri-user-heart-line"></i></span>
               </div>
             </Col>
             <Col className='lg-3'>
             <div className='users_box'>
                 <h5>Documentos</h5>
-                <span><i class="ri-article-fill"></i></span>
+                <span><i className="ri-article-fill"></i></span>
               </div>
             </Col>
           </Row>

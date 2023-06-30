@@ -15,6 +15,7 @@ import AddDoctors from '../admin/AddDoctors';
 import StaffMedico from './../pages/StaffMedico';
 import DashboarDoc from '../Doctor/DashboarDoc.jsx';
 import HistorialMed from '../Doctor/HistorialMed';
+import Servicios from '../pages/Servicios';
 
 
 const Routers = () => {
@@ -26,11 +27,14 @@ const Routers = () => {
             <Route path='contact' element={<Contact/>}/>
             <Route path='Staff' element={<StaffMedico/>}/>
             <Route path='historial' element={<HistorialUser/>}/>
+
             <Route path='historial2' element={<HistorialUser2/>}/>
+
 
             <Route path='specialties' element={<Specialties/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='register' element={<Register/>}/>
+
             
 
          
