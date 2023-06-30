@@ -9,46 +9,41 @@ const HistorialUser = () => {
 
   //CONSUMIENDO API RESULTADOS  
   const [datos, setDatos] = useState([]);
-  const username = localStorage.getItem("username"); 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // Llamada a la API con el token y el id de usuario
-    fetch(`https://smarth-resultdado-service.up.railway.app/resultado?nameMedic=${username}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Filtrar los datos por nameMedic y username
-        const filteredData = data.filter((item) => item.nameMedic === localStorage.getItem("username"));
-        setDatos(filteredData);
-      })
-      .catch((error) => console.log(error));
-  }, [username, token]);
+    const fetchData = async () => {
 
-  //COMSUMIENDO DATOS DE API USUARIOS
-  const usernameLocalStorage = localStorage.getItem('username');
+      // Realizar la llamada a la API incluyendo el token en el encabezado de la solicitud
+      const response = await fetch('https://smarth-user-service.up.railway.app/usuarios/getAllResult', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      setDatos(data);
+    };
+
+    fetchData();
+  }, [token]);
+
+
+  //COMSUMIENDO DATOS DE API USUARIOS-------------------------------------
 
   // Realiza una petición a tu API
-  fetch('https://smarth-user-service.up.railway.app/usuarios', {
+  fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
     .then(response => response.json())
-    .then(data => {
-      // Filtra los datos de la lista de usuarios basado en el nombre de usuario
-      const usuario = data.find(user => user.username === usernameLocalStorage);
-
-      document.getElementById('nombre').innerText = usuario.username;
-
-      const nombreCompleto = `${usuario.username} ${usuario.lastname}`;
-
+    .then((data) => {
+      document.getElementById('nombre').innerText = data.username;
+      const nombreCompleto = `${data.username} ${data.lastname}`;
       document.getElementById('nombrecompleto').innerText = nombreCompleto;
-      document.getElementById('dni').innerText = usuario.userid;
-      document.getElementById('celular').innerText = usuario.phone;
+      document.getElementById('dni').innerText = data.userid;
+      document.getElementById('celular').innerText = data.phone;
     })
     .catch(error => {
       console.error('Error al obtener los datos de la API:', error);
@@ -60,64 +55,61 @@ const HistorialUser = () => {
     <Container>
 
 
-      <div class="container">
-        <div class="cuadro">
-          <img class="user" src={user} alt='perfil-usuario' />
+      <div className="container">
+        <div className="cuadro">
+          <img className="user" src={user} alt='perfil-usuario' />
 
           {/* cuadro del usuario */}
-          <div class="text-usuario">
+          <div className="text-usuario">
             <h5 id="nombre">usuario</h5>
-            <p>DNI:<p id="dni">00000000</p></p>
+            <p>DNI:</p>
+            <p id="dni">00000000</p>
           </div>
 
           {/* cuadro del nombre completo */}
-          <div class="text-nombreCompleto">
+          <div className="text-nombreCompleto">
             <h5>Nombre Completo</h5>
             <p id="nombrecompleto">nombre-completo</p>
           </div>
 
           {/* cuadro del telefono */}
-          <div class="text-telefono">
+          <div className="text-telefono">
             <h5>Numero de celular</h5>
             <p id="celular">+51987567345</p>
           </div>
 
-          <button class="boton">Editar numero de celular</button>
+          <button className="boton">Editar numero de celular</button>
 
         </div>
       </div>
 
-      <div class="clinic-table-container">
-        <div class="clinic-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Perfil</th>
-                <th>Doctor</th>
-                <th>Especialidad</th>
-                <th>Fecha</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {datos.map((dato) => (
-                <tr key={dato.id}>
-                  <td>
-                    <img src={usericon} alt="perfil" />
-                  </td>
-                  <td>{dato.nameMedic}</td>
-                  <td>{dato.nameSpecialty}</td>
-                  <td>{dato.idUser}</td>
-                  <td>
-                    <Link to="/historial2">
-                      <button>ver mas</button>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="clinic-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Perfil</th>
+              <th>Doctor</th>
+              <th>Especialidad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          {datos.map(dato => (
+            <tr key={dato.idResult}>
+              <td>
+                <img src={usericon} alt="perfil" />
+              </td>
+              <td>{dato.nameMedic}</td>
+              <td>{dato.nameSpecialty}</td>
+              <td>
+                <Link to={`/historial2/${dato.idResult}`}>
+                  <button>ver mas</button>
+                </Link>
+              </td>
+            </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
     </Container>

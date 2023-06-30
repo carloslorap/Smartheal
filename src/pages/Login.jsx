@@ -30,6 +30,7 @@ const Login = () => {
       navigate('/home');
       toast.success('Login Success')
 
+      window.location.reload();
      
 
       

@@ -1,4 +1,11 @@
+.container{
+    display: flex;
+    margin-bottom: 30px;
+}
+
 .cuadro {
+    position: relative;
+    top: 20px;
     width: 422px;
     height: 702px;
     flex-shrink: 0;
@@ -6,11 +13,6 @@
     background: #FFF;
     box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.30);
 }
-
-/* .container {
-    display: flex;
-    justify-content: space-between;
-} */
 
 .user {
     width: 138px;
@@ -54,16 +56,11 @@
     top: 240px;
     color: #FFF;
 }
-/* 
-.clinic-table-container {
-    width: calc(100% - 100px);
-    position: relative;
-    top: 120px;
-} */
 
 .clinic-table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 100px;
 }
 
 .clinic-table th,
@@ -83,7 +80,7 @@
 }
 
 .clinic-table tbody td:first-child {
-    text-align: left;
+    text-align:center;
 }
 
 .historialMedic {
