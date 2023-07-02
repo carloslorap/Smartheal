@@ -1,16 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Row } from "reactstrap";
-import "./header.css";
 import { motion } from "framer-motion";
-
-
+import "./header.css";
+import { toast } from "react-toastify";
 
 const Header = () => {
- 
-  
-  
-  const nav_links = [
+  const navLinks = [
     {
       path: "home",
       display: "Home",
@@ -23,7 +19,6 @@ const Header = () => {
       path: "Staff",
       display: "Staf",
     },
-
     {
       path: "specialties",
       display: "Specialties",
@@ -32,12 +27,11 @@ const Header = () => {
       path: "login",
       display: "Login",
     },
-  
-    
   ];
 
   const headerRef = useRef(null);
-  const [isMenu, setIsMenu] = useState(false);
+  
+  // const [isMenu, setIsMenu] = useState(false);
 
   const menuRef = useRef(null);
 
@@ -54,48 +48,33 @@ const Header = () => {
     });
   };
 
+
   useEffect(() => {
     stickyHeaderFunc();
     return () => window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+  }, []);
+
 
   const menuToggle = () => menuRef.current.classList.toggle("active_menu");
 
+  const [user, setUser] = useState(null);
 
-
-  //////////////////(prueba) (start)/////////////////////////
-
-  const [nombre, setNombre] = useState('');
-  const [rolUsuario, setRolUsuario] = useState('');
-
-  
   useEffect(() => {
-    // Obtener el token del localStorage
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    // Hacer una solicitud a la API para obtener los detalles del usuario
-    fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
+    fetch("https://smarth-user-service.up.railway.app/usuarios/userLogin/actual", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
       .then(response => response.json())
       .then(data => {
-        // Actualizar el estado con el nombre del usuario
-        setNombre(data.username);
-        setRolUsuario(data.rol)
+        setUser(data);
       })
       .catch(error => {
-        console.error('Error al obtener los detalles del usuario:', error);
+        console.error("Error al obtener los detalles del usuario:", error);
       });
   }, []);
-
-
-
-
-    //////////////////(prueba) (end)/////////////////////////
-  
-
 
   return (
     <header className="header" ref={headerRef}>
@@ -103,7 +82,6 @@ const Header = () => {
         <Row>
           <div className="nav_wrapper">
             <div className="logo">
-              {/* <img alt='logo' src={Logo}/> */}
               <i className="ri-hospital-fill"></i>
               <div>
                 <h1>SmartHealth360</h1>
@@ -112,40 +90,29 @@ const Header = () => {
 
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
-                {nav_links.map((item, index) => (
+                {navLinks.map((item, index) => (
                   <li className="nav_item" key={index}>
-                    <NavLink
-                      to={item.path}
-                      className={(navClass) =>
-                        navClass.isActive ? "nav_active" : ""
-                      }
-                    >
-                      {item.display}
-                    </NavLink>
+                    {user && item.path === "login" ? (
+                      <NavLink to={item.path} className={(navClass) => (navClass.isActive ? "nav_active" : "")}>
+                        {user.username}
+                      </NavLink>
+                    ) : (
+                      <NavLink to={item.path} className={(navClass) => (navClass.isActive ? "nav_active" : "")}>
+                        {item.display}
+                      </NavLink>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
 
-           {/* inserta */}
-
-  
-          {
-            rolUsuario === 'PATIENT' && (
-              <MenuPaciente/>
-            )
-          }
-          {
-            rolUsuario === 'MEDIC' &&  (
-              <MenuDoctor/>
-            )
-          }
-          {
-            rolUsuario === 'ADMIN' && (
-              <MenuAdmin/>
-            )
-          }
-            
+            {user && (
+              <>
+                {user.rol === "PATIENT" && <MenuPaciente user={user} />}
+                {user.rol === "MEDIC" && <MenuDoctor user={user} />}
+                {user.rol === "ADMIN" && <MenuAdmin user={user} />}
+              </>
+            )}
 
             <div className="nav_icons">
               <div className="mobile_menu">
@@ -161,189 +128,152 @@ const Header = () => {
   );
 };
 
-
-
-const MenuPaciente =()=>{
-
-  const [nombre, setNombre] = useState('');
-  const [rolUsuario, setRolUsuario] = useState('');
-
+const MenuPaciente = ({ user }) => {
   
-  useEffect(() => {
-    // Obtener el token del localStorage
-    const token = localStorage.getItem('token');
-
-    // Hacer una solicitud a la API para obtener los detalles del usuario
-    fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Actualizar el estado con el nombre del usuario
-        setNombre(data.username);
-        setRolUsuario(data.rol)
-      })
-      .catch(error => {
-        console.error('Error al obtener los detalles del usuario:', error);
-      });
-  }, []);
-
  
   const [isMenu, setIsMenu] = useState(false);
-  return(
-
-    <div
-    onMouseEnter={() => setIsMenu(true)}
-    onMouseLeave={() => setIsMenu(false)}
-    className="content_nav-main"
-  >
-    <div>
-    <div> <p className="name_user" >{nombre}</p></div>
-
-    {isMenu && (
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        className="content_nav-second"
-      >
 
 
-        <NavLink><p>Profile</p></NavLink>
-        <NavLink><p>Setting</p></NavLink>
-        <NavLink to="/login"><p>Sign Out</p></NavLink>
-       
-      </motion.div>
-    )}
-    </div>
-  </div>
-  )
-}
-
-
-
-const MenuDoctor =()=>{
-  const [rolUsuario, setRolUsuario] = useState('');
-
-  const [nombre, setNombre] = useState('');
-
+  const handleLogout =()=>{
+    localStorage.clear();
+    toast.success('Logout Successfully');
   
-  useEffect(() => {
-    // Obtener el token del localStorage
-    const token = localStorage.getItem('token');
-
-    // Hacer una solicitud a la API para obtener los detalles del usuario
-    fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Actualizar el estado con el nombre del usuario
-        setNombre(data.username);
-        setRolUsuario(data.rol)
-      })
-      .catch(error => {
-        console.error('Error al obtener los detalles del usuario:', error);
-      });
-  }, []);
-
-  const [isMenu, setIsMenu] = useState(false);
-  return(
-    <div
-    onMouseEnter={() => setIsMenu(true)}
-    onMouseLeave={() => setIsMenu(false)}
-    className="content_nav-main"
-  >
-    <div>
-    <div> <p className="name_user" >{nombre}</p></div>
-
-    {isMenu && (
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        className="content_nav-second"
-      >
-
-
-        <NavLink><p>Profile</p></NavLink>
-        <NavLink><p>Setting</p></NavLink>
-        <NavLink to="/login"><p>Sign Out</p></NavLink>
-       
-        <NavLink><hr/>
-          <p>Portal Doctor</p></NavLink>
-       
-      </motion.div>
-    )}
-    </div>
-  </div>
-
-  )
 }
 
 
-const MenuAdmin =()=>{
-  const [rolUsuario, setRolUsuario] = useState('');
 
-  const [nombre, setNombre] = useState('');
+  return (
+    <div
+      onMouseEnter={() => setIsMenu(true)}
+      onMouseLeave={() => setIsMenu(false)}
+      className="content_nav-main"
+    >
+      <div className="user_avatar">
+        {/* <p className="name_user">{username}</p> */}
+        <i class="ri-settings-5-fill name_user"></i>
+      </div>
+      {isMenu && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="content_nav-second"
+        >
+          <NavLink>
+            <p>Profile</p>
+          </NavLink>
+          <NavLink>
+            <p>Settings</p>
+          </NavLink>
+          <NavLink onClick={handleLogout}  to="/login">
+            <p>Logout</p>
+          </NavLink>
+        </motion.div>
+      )}
+    </div>
+  );
+};
 
+const MenuDoctor = ({ user }) => {
+ 
   
-  useEffect(() => {
-    // Obtener el token del localStorage
-    const token = localStorage.getItem('token');
-
-    // Hacer una solicitud a la API para obtener los detalles del usuario
-    fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Actualizar el estado con el nombre del usuario
-        setNombre(data.username);
-        setRolUsuario(data.rol)
-      })
-      .catch(error => {
-        console.error('Error al obtener los detalles del usuario:', error);
-      });
-  }, []);
-
   const [isMenu, setIsMenu] = useState(false);
-  return(
-    <div
-    onMouseEnter={() => setIsMenu(true)}
-    onMouseLeave={() => setIsMenu(false)}
-    className="content_nav-main"
-  >
-    <div>
-    <div> <p className="name_user" >{nombre}</p></div>
 
-    {isMenu && (
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        className="content_nav-second"
-      >
-
-
-        <NavLink><p>Profile</p></NavLink>
-        <NavLink><p>Setting</p></NavLink>
-        <NavLink to="/login"><p>Sign Out</p></NavLink>
-       
-        <NavLink>
-        <hr/><p>Dashboard</p></NavLink>
-       
-      </motion.div>
-    )}
-    </div>
-  </div>
-
-  )
+  const handleLogout =()=>{
+    localStorage.clear();
+    toast.success('Logout Successfully');
+    
 }
+
+
+
+
+
+  return (
+    <div
+      onMouseEnter={() => setIsMenu(true)}
+      onMouseLeave={() => setIsMenu(false)}
+      className="content_nav-main"
+    >
+      <div className="user_avatar">
+        {/* <p className="name_user">{username}</p> */}
+        <i class="ri-settings-5-fill name_user"></i>
+      </div>
+      {isMenu && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="content_nav-second"
+        >
+          <NavLink>
+            <p>Profile</p>
+          </NavLink>
+          <NavLink>
+            <p>Settings</p>
+          </NavLink>
+          <NavLink onClick={handleLogout}  to="/login">
+            <p>Logout </p>
+          </NavLink>
+          <NavLink>
+            <hr />
+            <p>Portal Doc</p>
+          </NavLink>
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
+const MenuAdmin = ({ user }) => {
+  
+  
+  const [isMenu, setIsMenu] = useState(false);
+
+
+  const handleLogout =()=>{
+    localStorage.clear();
+    toast.success('Logout Successfully');
+  
+}
+
+
+
+
+
+
+  return (
+    <div
+      onMouseEnter={() => setIsMenu(true)}
+      onMouseLeave={() => setIsMenu(false)}
+      className="content_nav-main"
+    >
+      {/* <p className="name_user">{username}</p> */}
+      <i class="ri-settings-5-fill name_user"></i>
+      {isMenu && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          className="content_nav-second"
+        >
+          <NavLink>
+            <p>Profile</p>
+          </NavLink>
+          <NavLink>
+            <p>Settings</p>
+          </NavLink>
+          <NavLink onClick={handleLogout} to="/login">
+            <p>Logout </p>
+          </NavLink>
+          <NavLink>
+            <hr />
+            <p>Dashboard</p>
+          </NavLink>
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
 export default Header;

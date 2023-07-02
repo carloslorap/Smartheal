@@ -7,7 +7,7 @@ import Services from '../services/services';
 
 import icon from '../assets/Rectangle 78.png'
 
-import portada from '../assets/portada.jpg' 
+
 import Convenios from '../components/Convenios/Convenios';
 
 
@@ -15,7 +15,7 @@ const Home = () => {
 
   const year =new Date().getFullYear();
 
-
+  
  
   return (
    

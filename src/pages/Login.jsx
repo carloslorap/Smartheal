@@ -26,11 +26,12 @@ const Login = () => {
 
       const username1 = response.data.Username;
       localStorage.setItem("username", username1);
-
+      
       navigate('/home');
       toast.success('Login Success')
+    
 
-     
+  
 
       
     } catch (error) {
@@ -38,7 +39,7 @@ const Login = () => {
 
       console.error(error);
       
-      toast.error("Usuario o contraseña incorrectos")
+      toast.error("wrong name or password")
     }
   };
 

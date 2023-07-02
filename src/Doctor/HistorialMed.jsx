@@ -1,6 +1,6 @@
 import React from 'react'
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+
 import {Container,Row,Col, Form,FormGroup} from 'reactstrap';
 import {HistorialMedic} from '../components/api/Historial_Medic'
 
@@ -13,7 +13,7 @@ const HistorialMed = () => {
       <Row>
         <Col lg='12'>
 
-            <h4 className='mb-5'>Historial Medico</h4>
+            <h4 className='mb-5'>History Medic</h4>
           <Form onSubmit={(event)=>{
                event.preventDefault();
                const historial = { 
