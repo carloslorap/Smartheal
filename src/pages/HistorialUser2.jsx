@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
 import user from '../assets/user.png'
@@ -24,7 +24,7 @@ const HistorialUser = ({ match }) => {
     })
     .catch(error => {
       console.error('Error al obtener los datos de la API:', error);
-  });
+    });
 
 
   //OBTENIEDO LOS DATOS DEPENDIENDO DE LA ID DEL HISTORIAL MEDICO
@@ -32,7 +32,7 @@ const HistorialUser = ({ match }) => {
   const { dato } = location.state;
   const [datos4, setDatos4] = useState(null);
 
-  
+
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
@@ -76,10 +76,6 @@ const HistorialUser = ({ match }) => {
 
           <button className="boton">Editar numero de celular</button>
 
-          <Link to="/historial">
-            <button className="regresar">regresar</button>
-          </Link>
-
         </div>
       </div>
 
@@ -99,6 +95,11 @@ const HistorialUser = ({ match }) => {
           <h5>Recomendacion</h5>
           <p className='reco'>{datos4?.recommendations}</p>
         </div>
+
+        <Link to="/historial">
+          <button className="regresar">regresar</button>
+        </Link>
+
       </div>
 
     </Container>
