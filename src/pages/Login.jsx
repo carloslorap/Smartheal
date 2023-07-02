@@ -29,10 +29,7 @@ const Login = () => {
 
       navigate('/home');
       toast.success('Login Success')
-
-      window.location.reload();
-     
-
+      
       
     } catch (error) {
       // si hay un error, imprimirlo o mostrar el mensaje de error al usuario

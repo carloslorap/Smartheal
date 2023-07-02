@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
 import user from '../assets/user.png'
 import usericon from '../assets/user-icon.png'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const HistorialUser = () => {
 
@@ -50,6 +50,13 @@ const HistorialUser = () => {
     });
 
 
+  const navigate = useNavigate();
+
+  const handleVerMasClick = (dato) => {
+    navigate(`/historial2/${dato.idResult}`, { state: { dato } });
+  };
+
+
 
   return (
     <Container>
@@ -94,19 +101,17 @@ const HistorialUser = () => {
             </tr>
           </thead>
           <tbody>
-          {datos.map(dato => (
-            <tr key={dato.idResult}>
-              <td>
-                <img src={usericon} alt="perfil" />
-              </td>
-              <td>{dato.nameMedic}</td>
-              <td>{dato.nameSpecialty}</td>
-              <td>
-                <Link to={`/historial2/${dato.idResult}`}>
-                  <button>ver mas</button>
-                </Link>
-              </td>
-            </tr>
+            {datos.map(dato => (
+              <tr key={dato.idResult}>
+                <td>
+                  <img src={usericon} alt="perfil" />
+                </td>
+                <td>{dato.nameMedic}</td>
+                <td>{dato.nameSpecialty}</td>
+                <td>
+                  <button onClick={() => handleVerMasClick(dato)}>ver más</button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

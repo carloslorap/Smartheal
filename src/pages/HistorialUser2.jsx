@@ -1,11 +1,11 @@
-import React, { useParams, useState, useEffect  } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
 import user from '../assets/user.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const HistorialUser = () => {
+const HistorialUser = ({ match }) => {
 
   const token = localStorage.getItem('token');
 
@@ -28,32 +28,32 @@ const HistorialUser = () => {
 
 
   //OBTENIEDO LOS DATOS DEPENDIENDO DE LA ID DEL HISTORIAL MEDICO
-  const { id } = useParams();
+  const location = useLocation();
+  const { dato } = location.state;
   const [datos4, setDatos4] = useState(null);
 
   
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
-        const response = await axios.get(`https://smarth-resultdado-service.up.railway.app/resultado/${id}`);
+        const response = await axios.get(`https://smarth-resultdado-service.up.railway.app/resultado/${dato.idResult}`);
         setDatos4(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
     };
 
     obtenerDatos();
-  }, [id]);
+  }, [dato]);
 
 
   return (
     <Container>
 
 
-      <div class="container">
-        <div class="cuadro">
-          <img class="user" src={user} alt='perfil' />
+      <div className="container">
+        <div className="cuadro">
+          <img className="user" src={user} alt='perfil' />
 
           {/* cuadro del usuario */}
           <div className="text-usuario">
@@ -74,16 +74,16 @@ const HistorialUser = () => {
             <p id="celular">+51000000000</p>
           </div>
 
-          <button class="boton">Editar numero de celular</button>
+          <button className="boton">Editar numero de celular</button>
 
           <Link to="/historial">
-            <button class="regresar">regresar</button>
+            <button className="regresar">regresar</button>
           </Link>
 
         </div>
       </div>
 
-      <div class="historialMedic">
+      <div className="historialMedic">
         <div id="text-dia">
           <h5>Diagnóstico</h5>
           <p className='diag'>{datos4?.diagnosis}</p>

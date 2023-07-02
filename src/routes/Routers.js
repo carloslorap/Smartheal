@@ -1,4 +1,4 @@
-import { Route,Routes,Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Contact from '../pages/Contact'
@@ -22,39 +22,39 @@ const Routers = () => {
     return (
         <Routes>
 
-            <Route path='/' element={<Navigate to='home'/>}/>
-            <Route path='home' element={<Home/>}/>
-            <Route path='contact' element={<Contact/>}/>
-            <Route path='Staff' element={<StaffMedico/>}/>
-            <Route path='services' element={<Servicios/>}/>
-            <Route path='historial' element={<HistorialUser/>}/>
+            <Route path='/' element={<Navigate to='home' />} />
+            <Route path='home' element={<Home />} />
+            <Route path='contact' element={<Contact />} />
+            <Route path='Staff' element={<StaffMedico />} />
+            <Route path='services' element={<Servicios />} />
+            <Route path='historial' element={<HistorialUser />} />
 
-            <Route path='historial2' element={<HistorialUser2/>}/>
+            <Route path="/historial2/:idResult" element={<HistorialUser2 />} />
 
 
-            <Route path='specialties' element={<Specialties/>}/>
-            <Route path='login' element={<Login/>}/>
-            <Route path='register' element={<Register/>}/>
-
-            
-
-         
-            <Route path='dashboard' element={<Dashboard/>}/>
-
-            <Route path='dashboard/add-doctors' element={<AddDoctors/>}/>
-            <Route path='dashboard/dosctors' element={<Doctors/>}/>
-            <Route path='dashboard/users' element={<Users/>}/>
+            <Route path='specialties' element={<Specialties />} />
+            <Route path='login' element={<Login />} />
+            <Route path='register' element={<Register />} />
 
 
 
-            <Route path='PortalDoc' element={<DashboarDoc/>}/>
-            <Route path='PortalDoc/HistorialMed' element={<HistorialMed/>}/>
-           
+
+            <Route path='dashboard' element={<Dashboard />} />
+
+            <Route path='dashboard/add-doctors' element={<AddDoctors />} />
+            <Route path='dashboard/dosctors' element={<Doctors />} />
+            <Route path='dashboard/users' element={<Users />} />
+
+
+
+            <Route path='PortalDoc' element={<DashboarDoc />} />
+            <Route path='PortalDoc/HistorialMed' element={<HistorialMed />} />
+
 
         </Routes>
 
-        
+
     )
-  }
+}
 
 export default Routers
