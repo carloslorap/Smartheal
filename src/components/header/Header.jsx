@@ -165,9 +165,15 @@ const MenuPaciente = ({ user }) => {
           <NavLink>
             <p>Settings</p>
           </NavLink>
+          <NavLink to="/historial">
+          
+            <p>Medical History</p>
+          </NavLink>
+
           <NavLink onClick={handleLogout}  to="/login">
             <p>Logout</p>
           </NavLink>
+
         </motion.div>
       )}
     </div>

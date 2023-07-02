@@ -1,6 +1,7 @@
-.container {
+/* .container1 {
     display: flex;
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .cuadro {
@@ -12,6 +13,8 @@
     border-radius: 15px;
     background: #FFF;
     box-shadow: 5px 4px 10px 0px rgba(0, 0, 0, 0.30);
+
+    margin-left: 5rem;
 }
 
 .user {
@@ -85,7 +88,7 @@
 
 .historialMedic {
     width: 782px;
-    height: 702px;
+    height: 602px;
     flex-shrink: 0;
     border-radius: 15px;
     background: #FFF;
@@ -116,4 +119,149 @@
     position: relative;
     top: -90px;
     left: 650px;
+} */
+
+
+
+.contact_container{
+    background: var(--color-bg1);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 4rem;
+    height: 30rem;
+    margin: 7rem auto;
+    border-radius: 1rem;
+    box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
+-webkit-box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
+-moz-box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
 }
+
+
+
+.contact_aside{
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    position: relative;
+    bottom: 10rem;
+    box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
+-webkit-box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
+-moz-box-shadow: 5px 13px 10px 12px rgba(0,0,0,0.15);
+    padding-bottom: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.aside_image{
+    width: 12rem;
+    margin-bottom: 2rem;
+    
+}
+.aside_image img{
+    object-fit: cover;
+}
+.contact_aside h2{
+    text-align: center;
+    margin-bottom: 1rem;
+
+}
+.contact_aside .dni{
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.contact_details li{
+display: flex;
+gap: 1rem;
+align-items: center;
+margin-bottom: 1rem;
+}
+.contact_socials{
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 3rem;
+}
+.contact_socials a{
+    background: var(--color-bg2);
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.contact_socials a:hover{
+    background: transparent;
+}
+
+
+.contact_form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-right: 4rem;
+}
+ .form_name{
+    display: flex;
+    gap: 1.2rem;
+}
+
+
+
+
+.td_img{
+width: 50px;
+height: 50px;
+}
+
+.table_desc td,
+.table_desc th{
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+
+table,thead,tr{
+    border-bottom: 1px solid grey;
+}
+
+
+.ver_btn{
+    padding: 7px;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+
+.desc_result{
+  
+    margin-bottom: 60px;
+}
+
+
+.table_desc i{
+    
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.table_desc{
+    width: 37rem;
+}
+
+
+
+
+
+
+

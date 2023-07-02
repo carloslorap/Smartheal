@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap'
 import '../style/Hiatorial.css'
-import user from '../assets/user.png'
-import usericon from '../assets/user-icon.png'
+import usericon from '../assets/nuevo-user.png'
+import usericonsmall  from '../assets/medic (1).png'
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const HistorialUser = () => {
 
@@ -59,39 +59,34 @@ const HistorialUser = () => {
 
 
   return (
-    <Container>
 
 
-      <div className="container">
-        <div className="cuadro">
-          <img className="user" src={user} alt='perfil-usuario' />
+    <section className="contact"> 
+    <div className="container contact_container">
+        <aside className="contact_aside">
+            <div className="aside_image">
+                <img src={usericon} alt='ef'/>
+            </div>
+            <h2 id='nombre'>Name User</h2>
+            <p className='dni' >DNI: <span id='dni'>0000000</span></p>
+            <ul className="contact_details">
+               
+                    <h5>Nombre completo</h5>
+                    <p id='nombrecompleto'>full username</p>
+                    <br/>
+                      <h5>Numero de celular</h5>
+                    <p id='celular'>000000000</p>
+              
+            </ul>
+            <ul className="contact_socials">
+          
 
-          {/* cuadro del usuario */}
-          <div className="text-usuario">
-            <h5 id="nombre">usuario</h5>
-            <p>DNI:</p>
-            <p id="dni">00000000</p>
-          </div>
+            </ul>
+        </aside>
 
-          {/* cuadro del nombre completo */}
-          <div className="text-nombreCompleto">
-            <h5>Nombre Completo</h5>
-            <p id="nombrecompleto">nombre-completo</p>
-          </div>
 
-          {/* cuadro del telefono */}
-          <div className="text-telefono">
-            <h5>Numero de celular</h5>
-            <p id="celular">+51987567345</p>
-          </div>
-
-          <button className="boton">Editar numero de celular</button>
-
-        </div>
-      </div>
-
-      <div className="clinic-table">
-        <table>
+    <div className='table_desc'>
+    <table>
           <thead>
             <tr>
               <th>Perfil</th>
@@ -104,22 +99,33 @@ const HistorialUser = () => {
             {datos.map(dato => (
               <tr key={dato.idResult}>
                 <td>
-                  <img src={usericon} alt="perfil" />
+                  <img src={usericonsmall} alt="perfil" className='td_img'/>
                 </td>
                 <td>{dato.nameMedic}</td>
                 <td>{dato.nameSpecialty}</td>
                 <td>
-                  <button onClick={() => handleVerMasClick(dato)}>ver más</button>
+                  <motion.button
+                  whileTap={{scale:1.2}}  onClick={() => handleVerMasClick(dato)} className='ver_btn'>ver más</motion.button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
 
-    </Container>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+      
 
   )
 }
 
 export default HistorialUser
+
+
+
