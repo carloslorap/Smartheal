@@ -54,7 +54,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", stickyHeaderFunc);
   }, []);
 
-
+ 
   const menuToggle = () => menuRef.current.classList.toggle("active_menu");
 
   const [user, setUser] = useState(null);
@@ -62,7 +62,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("https://smarth-user-service.up.railway.app/usuarios/userLogin/actual", {
+    fetch("https://smarth-user-service.azurewebsites.net/usuarios/userLogin/actual", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

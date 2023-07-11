@@ -226,7 +226,7 @@
   background: #e2f2b2;
   padding: 0.7rem;
   border-radius: 0.9rem;
-  color: white;
+  color: (--color-primary);
 }
 
 .category h5 {

@@ -18,7 +18,7 @@ const Login = () => {
     event.preventDefault();
     try {
       // hacer una petición POST a la API
-      const response = await axios.post("https://smarth-user-service.up.railway.app/login", { username, password });
+      const response = await axios.post("https://smarth-user-service.azurewebsites.net/login", { username, password });
 
       const token = response.data.token;
       localStorage.setItem('token', token);
@@ -39,6 +39,8 @@ const Login = () => {
       toast.error("wrong name or password")
     }
   };
+
+
 
   return (
     <div>
@@ -89,6 +91,12 @@ const Login = () => {
             Not a member?{" "}
             <Link to="/register" style={{ color: "#ACD2FF", fontWeight: "bold" }}>
               Register
+            </Link>
+          </p>
+          <p className="text--center">
+            Do you want to visit the page?{" "}
+            <Link to="/home" style={{ color: "#ACD2FF", fontWeight: "bold" }}>
+            SmartHealth
             </Link>
           </p>
         </div>

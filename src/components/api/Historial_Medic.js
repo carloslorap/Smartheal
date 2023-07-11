@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const HistorialMedic=(his)=>{
   his.state=true
-    axios.post('https://smarth-resultdado-service.up.railway.app/resultado', his)
+    axios.post('https://smarth-user-service.azurewebsites.net/resultado', his)
     .then(response => {
       console.log(response.data); 
       // handle success response
@@ -12,3 +12,5 @@ export const HistorialMedic=(his)=>{
       // handle error response
     });
 }
+
+//https://smarth-resultdado-service.up.railway.app/resultado

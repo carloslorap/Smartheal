@@ -9,7 +9,7 @@ const HistorialUser = ({ match }) => {
 
   const token = localStorage.getItem('token');
 
-  fetch('https://smarth-user-service.up.railway.app/usuarios/userLogin/actual', {
+  fetch('https://smarth-user-service.azurewebsites.net/usuarios/userLogin/actual', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -36,7 +36,7 @@ const HistorialUser = ({ match }) => {
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
-        const response = await axios.get(`https://smarth-resultdado-service.up.railway.app/resultado/${dato.idResult}`);
+        const response = await axios.get(`https://smarth-resultado-service.azurewebsites.net/resultado/${dato.idResult}`);
         setDatos4(response.data);
       } catch (error) {
         console.error(error);

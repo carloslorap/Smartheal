@@ -1,3 +1,10 @@
+@keyframes shake{
+  0%, 100%{translate: 0;}
+  25%{translate: 2px 0;}
+  75%{translate: -2px 0;}
+
+}
+
 .content-login{
     display: flex;
 }
@@ -26,8 +33,18 @@
     outline: 0;
     padding: 0;
     transition: background-color 0.3s;
+    animation: shake 0.14s 3;
   
 }
+
+.form_input1:valid{
+  border-color: red;
+  animation: none;
+
+}
+
+
+
 .form_input1 [type="submit"] {
     cursor: pointer;
     text-decoration: none;

@@ -24,7 +24,7 @@ const Home = () => {
         
             
               <div className='hero_content'>
-                <p className='hero_subtitle'>Trending product in <span className='year'>{year}</span> </p>
+                <p className='hero_subtitle'>The Best Clinic in <span className='year'>{year}</span> </p>
                 <h2>Heaven Heals And The Doctor Collects The Fees</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas in veniam impedit adipisci? Dolor eius excepturi unde deserunt officia iusto?</p>
                 <motion.button whileTap={{scale:1.2}} className='buy_btn'><Link to='/shop'>SHOW NOW</Link></motion.button>
