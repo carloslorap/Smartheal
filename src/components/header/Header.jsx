@@ -221,7 +221,7 @@ const MenuDoctor = ({ user }) => {
           <NavLink onClick={handleLogout}  to="/login">
             <p>Logout </p>
           </NavLink>
-          <NavLink>
+          <NavLink to="/PortalDoc">
             <hr />
             <p>Portal Doc</p>
           </NavLink>
