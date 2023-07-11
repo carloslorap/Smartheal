@@ -6,12 +6,12 @@ export const HistorialMedic=(his)=>{
     .then(response => {
       console.log(response.data); 
       // handle success response
-      toast.success('Bien') 
+      toast.success('successful sent history')
     })
     .catch(error => {
       console.log(error.response.data);
       // handle error response
-      toast.error(' Failed')
+      toast.error('Failed to send history')
     });
 }
 

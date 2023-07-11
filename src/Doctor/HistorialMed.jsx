@@ -25,7 +25,7 @@ const HistorialMed = () => {
                 recommendations: event.target.recommendations.value
                };
                 HistorialMedic(historial)
-               toast.success('successful sent history')
+               
               
             }}>
     
