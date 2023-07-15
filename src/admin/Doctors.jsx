@@ -6,22 +6,27 @@ import {toast}from 'react-toastify'
 
 const Doctors = () => {
     const[doctors,setDoctors]=useState([])
-
+    const token = localStorage.getItem("token");
 
     useEffect(()=>{
         const getDoctors= async()=>{
-            const response= await axios.get('https://smarthhealth360.up.railway.app/home/paciente');
+            const response= await axios.get('https://smarth-user-service.azurewebsites.net/user-service/usuarios',
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
             setDoctors(response.data);
         };
         getDoctors()
        
 
-    },[]);
+    },[token]);
 
 
     
     function deleteUser(userId){
-        fetch(`https://smarthhealth360.up.railway.app/home/paciente/${userId}`, {
+        fetch(`https://smarth-user-service.azurewebsites.net/user-service/usuarios/${userId}`, {
           method: 'DELETE'
         })
         .then(response => {
@@ -50,7 +55,7 @@ const Doctors = () => {
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Last name</th>
-                                <th>Email</th>
+                                <th>Phone</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -58,14 +63,14 @@ const Doctors = () => {
                           
                            {
                              
-                             doctors.filter(doc=>doc.rol_id.id===3).map(
+                             doctors.filter(doc=>doc.rol==="MEDIC").map(
                                 doc =>(
-                                    <tr key={doc.id}>
+                                    <tr key={doc.userid}>
                                     <td><img src={doc_icon} alt=''/></td>
-                                    <td>{doc.nombre}</td>
-                                    <td>{doc.apellido}</td>
-                                    <td>{doc.correo_electronico}</td>
-                                    <td><div className='d-flex' onClick={()=>{deleteUser(doc.id)}}>{doc.estado ?(<button className='btn btn-success'>Active</button>):(<button className='btn btn-danger'>Inactive</button>)}</div></td>
+                                    <td>{doc.username}</td>
+                                    <td>{doc.lastname}</td>
+                                    <td>{doc.phone}</td>
+                                    <td><div className='d-flex' onClick={()=>{deleteUser(doc.userid)}}>{doc.enable ?(<button className='btn btn-success'>Active</button>):(<button className='btn btn-danger'>Inactive</button>)}</div></td>
                                 </tr>
                                 )
                              )
@@ -79,5 +84,8 @@ const Doctors = () => {
     </section>
   )
 }
+
+
+
 
 export default Doctors

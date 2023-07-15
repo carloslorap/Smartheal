@@ -9,7 +9,7 @@ const HistorialUser = ({ match }) => {
 
   const token = localStorage.getItem('token');
 
-  fetch('https://smarth-user-service.azurewebsites.net/usuarios/userLogin/actual', {
+  fetch('https://smarth-user-service.azurewebsites.net/user-service/usuarios/userLogin/actual', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -36,7 +36,7 @@ const HistorialUser = ({ match }) => {
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
-        const response = await axios.get(`https://smarth-resultado-service.azurewebsites.net/resultado/${dato.idResult}`);
+        const response = await axios.get(`https://smart-resultados.azurewebsites.net/resultado/${dato.idResult}`);
         setDatos4(response.data);
       } catch (error) {
         console.error(error);
@@ -76,7 +76,7 @@ const HistorialUser = ({ match }) => {
 
   <div className='table_desc'>
 <Link to="/historial">
-  <i class="ri-corner-up-left-line"></i>
+  <i className="ri-corner-up-left-line"></i>
   </Link>
   <div className='desc_result' id='text-dia'>
     <h5>Diagnóstico</h5>

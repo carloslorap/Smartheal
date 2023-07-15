@@ -4,12 +4,14 @@ import usericon from "../assets/nuevo-user.png";
 import usericonsmall from "../assets/medic (1).png";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const HistorialUser = () => {
   //CONSUMIENDO API RESULTADOS
   const [datos, setDatos] = useState([]);
   const token = localStorage.getItem("token");
   const [modalVisible, setModalVisible] = useState(false);
+  const [newPhoneNumber, setNewPhoneNumber] = useState("");
 
 
   const OpenModal =()=> {
@@ -19,11 +21,37 @@ const HistorialUser = () => {
     setModalVisible(false);
   }
 
+  const handlePhoneNumberChange = (event) => {
+    setNewPhoneNumber(event.target.value);
+  };
+
+  const updateUserPhoneNumber = () => {
+    const newData = {
+      phone: newPhoneNumber,
+    };
+
+    axios
+      .put("https://smarth-user-service.azurewebsites.net/user-service/usuarios/getAllResult", newData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log("Número de celular actualizado con éxito:", response.data);
+        // Aquí puedes realizar cualquier acción adicional que necesites después de la actualización exitosa.
+        CloseModal();
+      })
+      .catch((error) => {
+        console.error("Error al actualizar el número de celular:", error);
+        // Aquí puedes manejar los errores de acuerdo a tus necesidades.
+      });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       // Realizar la llamada a la API incluyendo el token en el encabezado de la solicitud
       const response = await fetch(
-        "https://smarth-user-service.azurewebsites.net/usuarios/getAllResult",
+        "https://smarth-user-service.azurewebsites.net/user-service/usuarios/getAllResult",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -42,7 +70,7 @@ const HistorialUser = () => {
 
   // Realiza una petición a tu API
   fetch(
-    "https://smarth-user-service.azurewebsites.net/usuarios/userLogin/actual",
+    "https://smarth-user-service.azurewebsites.net/user-service/usuarios/userLogin/actual",
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -69,11 +97,11 @@ const HistorialUser = () => {
 
   return (
     <section className="contact">
-      <div class={`overlay ${modalVisible ? 'visible' :''}`}>
-        <div class="slideshow">
+      <div className={`overlay ${modalVisible ? 'visible' :''}`}>
+        <div className="slideshow">
 
           <div className="content_modal">
-          <motion.span  onClick={CloseModal} whileTap={{ scale: 1.2 }} class="btn_cerrar"><i class="ri-close-circle-fill close_icon"></i></motion.span>
+          <motion.span  onClick={CloseModal} whileTap={{ scale: 1.2 }} className="btn_cerrar"><i className="ri-close-circle-fill close_icon"></i></motion.span>
             <h5>Change Number</h5>
             <p>
               Remember that you must change to put your real number for which it
@@ -82,8 +110,8 @@ const HistorialUser = () => {
             </p>
 
             <form className="form_num_change">
-              <input type="number" />
-              <button className="buy_btn">Change</button>
+              <input type="text" value={newPhoneNumber} onChange={handlePhoneNumberChange}/>
+              <button className="buy_btn" onClick={updateUserPhoneNumber}>Change</button>
             </form>
           </div>
         </div>

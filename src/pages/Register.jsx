@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import '../style/register.css'
 import {registerUser} from '../components/api/api_registro.js';
- import {toast} from 'react-toastify'
- import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
    const navigate =useNavigate();

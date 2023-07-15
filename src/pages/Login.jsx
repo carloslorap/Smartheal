@@ -15,10 +15,10 @@ const Login = () => {
 
   // manejar el envío del formulario
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
+    event.preventDefault(); 
+    try { 
       // hacer una petición POST a la API
-      const response = await axios.post("https://smarth-user-service.azurewebsites.net/login", { username, password });
+      const response = await axios.post("https://smarth-user-service.azurewebsites.net/user-service/login", { username, password });
 
       const token = response.data.token;
       localStorage.setItem('token', token);

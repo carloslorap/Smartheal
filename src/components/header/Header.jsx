@@ -62,7 +62,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("https://smarth-user-service.azurewebsites.net/usuarios/userLogin/actual", {
+    fetch("https://smarth-user-service.azurewebsites.net/user-service/usuarios/userLogin/actual", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -150,7 +150,7 @@ const MenuPaciente = ({ user }) => {
     >
       <div className="user_avatar">
         {/* <p className="name_user">{username}</p> */}
-        <i class="ri-settings-5-fill name_user"></i>
+        <i className="ri-settings-5-fill name_user"></i>
       </div>
       {isMenu && (
         <motion.div
@@ -203,7 +203,7 @@ const MenuDoctor = ({ user }) => {
     >
       <div className="user_avatar">
         {/* <p className="name_user">{username}</p> */}
-        <i class="ri-settings-5-fill name_user"></i>
+        <i className="ri-settings-5-fill name_user"></i>
       </div>
       {isMenu && (
         <motion.div
@@ -255,7 +255,7 @@ const MenuAdmin = ({ user }) => {
       className="content_nav-main"
     >
       {/* <p className="name_user">{username}</p> */}
-      <i class="ri-settings-5-fill name_user"></i>
+      <i className="ri-settings-5-fill name_user"></i>
       {isMenu && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -272,7 +272,7 @@ const MenuAdmin = ({ user }) => {
           <NavLink onClick={handleLogout} to="/login">
             <p>Logout </p>
           </NavLink>
-          <NavLink>
+          <NavLink to="/dashboard">
             <hr />
             <p>Dashboard</p>
           </NavLink>

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const registerUser = (userRegistre) => {
     
  
-    axios.post('https://smarth-user-service.azurewebsites.net/register',userRegistre)
+    axios.post('https://smarth-user-service.azurewebsites.net/user-service/register',userRegistre)
       .then(response => {
         console.log(response.data); 
         // handle success response

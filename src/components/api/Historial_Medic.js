@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 export const HistorialMedic=(his)=>{
  
-    axios.post('https://smarth-resultado-service.azurewebsites.net/resultado', his)
+    axios.post('https://smart-resultados.azurewebsites.net/resultado', his)
     .then(response => {
       console.log(response.data); 
       // handle success response

@@ -8,20 +8,36 @@ import {toast}from 'react-toastify'
 
 const Users = () => {
     const[users,setUsers]=useState([])
+    const token = localStorage.getItem("token");
+    useEffect(() =>{
+      const hola = async () =>{
+        try {
+          const response = await axios.get('https://smarth-user-service.azurewebsites.net/user-service/usuarios',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setUsers(response.data)
+        } catch (error) {
+          console.log(error)
+        }
+
+      
+      }
+      hola();
+    },[token]);
     
-    useEffect(()=>{
-        const getUsers= async()=>{
-            const response= await axios.get('https://smarthhealth360.up.railway.app/home/paciente');
-            setUsers(response.data);
-        };
-        getUsers()
-       
-    },[]);
+
 
 
     function deleteUser(userId){
-        fetch(`https://smarthhealth360.up.railway.app/home/paciente/${userId}`, {
-          method: 'DELETE'
+      const token = localStorage.getItem('token');
+        fetch(`https://smarth-user-service.azurewebsites.net/user-service/usuarios/${userId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}` // Incluye el token en el encabezado de autorización
+          }
         })
         .then(response => {
           if (response.ok) {
@@ -49,7 +65,7 @@ const Users = () => {
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Last name</th>
-                                <th>Email</th>
+                                <th>Phone</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -58,14 +74,14 @@ const Users = () => {
                                   
                                   {
                              
-                                    users.filter(user=>user.rol_id.id===2).map(
+                                    users.filter(user=>user.rol==="PATIENT").map(
                                         user =>(
-                                           <tr key={user.id}>
+                                           <tr key={user.userid}>
                                            <td><img src={user_icon} alt=''/></td>
-                                           <td>{user.nombre}</td>
-                                           <td>{user.apellido}</td>
-                                           <td>{user.correo_electronico}</td>
-                                           <td><div className='d-flex' onClick={()=>{deleteUser(user.id)}}>{user.estado ?(<button className='btn btn-success'>Active</button>):(<button className='btn btn-danger'>Inactive</button>)}</div></td>
+                                           <td>{user.username}</td>
+                                           <td>{user.lastname}</td>
+                                           <td>{user.phone}</td>
+                                           <td><div className='d-flex' onClick={()=>{deleteUser(user.userid)}}>{user.enable ?(<button className='btn btn-success'>Active</button>):(<button className='btn btn-danger'>Inactive</button>)}</div></td>
                                        </tr>
                                        )
                                     )

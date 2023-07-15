@@ -4,7 +4,10 @@ import '../style/product-details.css'
 import {registerDoc} from '../components/api/Add_doc.js'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+
+
 const AddDoctors = () => {
+
 
 
   const navigate=useNavigate();
@@ -15,17 +18,16 @@ const AddDoctors = () => {
         <Row>
           <Col lg='12'>
   
-               <h4 className='mb-5'>Add Doctor</h4>
+            <h4 className='mb-5'>Add Doctor</h4>
             <Form onSubmit={(event)=>{
                event.preventDefault();
                const docRegistre = {
-                 id: event.target.id.value,
-                 nombre: event.target.nombre.value,
-                 apellido: event.target.apellido.value,
-                 fecha_nacimiento: event.target.fecha_nacimiento.value,
-                 correo_electronico: event.target.correo_electronico.value,
-                 contrasena: event.target.contrasena.value,
-                 telefono: event.target.telefono.value
+                 userid: event.target.userid.value,
+                 username: event.target.username.value,
+                 lastname: event.target.lastname.value,
+                 birthdate: event.target.birthdate.value,
+                 password: event.target.password.value,
+                 phone: event.target.phone.value
                };
                registerDoc(docRegistre);
                toast.success('Add Doctor success')
@@ -33,34 +35,30 @@ const AddDoctors = () => {
             }}>
               <FormGroup className='form_group'>
                 <span>Num Doc</span>
-                <input type='text' placeholder='Num.doc....' name='id' required/>
+                <input type='text' placeholder='Num.doc....' name='userid' required/>
                 
               </FormGroup>
               <FormGroup className='form_group'>
                 <span>Name doctor</span>
-                <input type='text' placeholder='Name....' name='nombre' required/>
+                <input type='text' placeholder='Name....' name='username' required/>
                 
               </FormGroup>
               <FormGroup className='form_group'>
                 <span>Last name doctor</span>
-                <input type='text' placeholder='Lastname....' name='apellido' required/>
+                <input type='text' placeholder='Lastname....' name='lastname' required/>
             
               </FormGroup>
-              <FormGroup className='form_group'>
-                <span>Email</span>
-                <input type='email' placeholder='Email...' name='correo_electronico' required/>
-             
-              </FormGroup>
+
 
               <div className='d-flex align-items-center justify-content-between gap-5'>
               <FormGroup className='form_group  w-50'>
                 <span>Password</span>
-                <input type='text' placeholder='password....' name='contrasena' required/>
+                <input type='text' placeholder='password....' name='password' required/>
            
               </FormGroup>
               <FormGroup className='form_group w-50'>
                 <span>Birthday Date</span>
-               <input className='w-100 p-2' type='date' placeholder='Birthday Date...' name='fecha_nacimiento' required/>
+               <input className='w-100 p-2' type='date' placeholder='Birthday Date...' name='birthdate' required/>
 
 
           
@@ -70,7 +68,7 @@ const AddDoctors = () => {
               <div>
               <FormGroup className='form_group'>
                 <span>Phone doctor</span>
-                <input type='text' placeholder='Phone number....' name='telefono' required/>
+                <input type='number' placeholder='Phone number....' name='phone' required/>
               </FormGroup>
               </div>
 
@@ -83,6 +81,13 @@ const AddDoctors = () => {
       </Container>
     </section>
   )
+
+  
 }
+
+
+
+
+
 
 export default AddDoctors

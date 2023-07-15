@@ -261,7 +261,7 @@ const DoctorCard = ({ profile }) => {
                 onMouseEnter={() => handleRatingHover(value)}
                 onMouseLeave={() => setHoveredRating(0)}
               >
-                {value <= (hoveredRating || rating) ? <i class="ri-star-fill"></i> : <i class="ri-star-line"></i>}
+                {value <= (hoveredRating || rating) ? <i className="ri-star-fill"></i> : <i className="ri-star-line"></i>}
               </span>
             ))}
           </div>
